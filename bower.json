@@ -1,0 +1,23 @@
+{
+	"name": "astroride",
+	"description": "A WordPress theme",
+	"main": "Gruntfile.js",
+	"authors": [
+		"Idenovasi <satrya@idenovasi.com>"
+	],
+	"license": "GPL v2",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"html5shiv": "^3.7.3",
+		"normalize.css": "^8.0.1",
+		"retinajs": "^2.1.2",
+		"susy": "2.2.14",
+		"fitvids": "^1.2.0"
+	}
+}
