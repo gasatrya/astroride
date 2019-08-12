@@ -88,7 +88,27 @@ module.exports = function ( grunt ) {
 					sourceMap: true
 				},
 				files: {
-					'style.css': 'scss/style.scss',
+					'style.css': 'sass/style.scss',
+				}
+			},
+			editor: {
+				options: {
+					implementation: sass,
+					outputStyle: 'expanded',
+					sourceMap: false
+				},
+				files: {
+					'style-editor.css': 'sass/style-editor.scss',
+				}
+			},
+			print: {
+				options: {
+					implementation: sass,
+					outputStyle: 'expanded',
+					sourceMap: false
+				},
+				files: {
+					'print.css': 'sass/print.scss',
 				}
 			},
 			prod: {
@@ -98,8 +118,8 @@ module.exports = function ( grunt ) {
 					sourceMap: false
 				},
 				files: {
-					'style.min.css': 'scss/style.scss',
-					'assets/css/editor-style.css': 'scss/editor-style.scss'
+					'style.min.css': 'sass/style.scss',
+					'style-editor.css': 'sass/style-editor.scss',
 				}
 			}
 		},
@@ -161,16 +181,19 @@ module.exports = function ( grunt ) {
 				livereload: true,
 				spawn: false
 			},
-			scss: {
-				files: [ 'scss/**/*.scss' ],
+			sass: {
+				files: [ 'sass/**/*.scss' ],
 				tasks: [
 					'sass:dev',
 					'autoprefixer:dev',
 				]
 			},
-			js: {
-				files: [ 'assets/js/**/*.js' ],
-			}
+			editor: {
+				files: [ 'sass/style-editor.scss' ],
+				tasks: [
+					'sass:editor'
+				]
+			},
 		},
 
 		// Images minify
@@ -199,7 +222,7 @@ module.exports = function ( grunt ) {
 					'!node_modules/**',
 					'!bower_components/**',
 					'!build/**',
-					'!scss/**',
+					'!sass/**',
 					'!.git/**',
 					'!Gruntfile.js',
 					'!package.json',
@@ -251,7 +274,7 @@ module.exports = function ( grunt ) {
 						'build/.*',
 						'assets/.*',
 						'readme/.*',
-						'scss/.*',
+						'sass/.*',
 						'bower_components/.*',
 						'node_modules/.*'
 					],

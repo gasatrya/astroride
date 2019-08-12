@@ -121,7 +121,7 @@ function astroride_customize_partial_blogdescription() {
  * Bind JS handlers to instantly live-preview changes.
  */
 function astroride_customize_preview_js() {
-	wp_enqueue_script( 'astroride-customize-preview', get_theme_file_uri( '/js/customize-preview.js' ), array( 'customize-preview' ), '20181231', true );
+	wp_enqueue_script( 'astroride-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview' ), '20181231', true );
 }
 add_action( 'customize_preview_init', 'astroride_customize_preview_js' );
 
@@ -129,7 +129,7 @@ add_action( 'customize_preview_init', 'astroride_customize_preview_js' );
  * Load dynamic logic for the customizer controls area.
  */
 function astroride_panels_js() {
-	wp_enqueue_script( 'astroride-customize-controls', get_theme_file_uri( '/js/customize-controls.js' ), array(), '20181231', true );
+	wp_enqueue_script( 'astroride-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), array(), '20181231', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'astroride_panels_js' );
 

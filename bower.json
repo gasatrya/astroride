@@ -14,10 +14,6 @@
 		"tests"
 	],
 	"dependencies": {
-		"html5shiv": "^3.7.3",
-		"normalize.css": "^8.0.1",
-		"retinajs": "^2.1.2",
-		"susy": "2.2.14",
-		"fitvids": "^1.2.0"
+		"normalize.css": "^8.0.1"
 	}
 }
