@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Nineteen: Customizer
+ * Astroride: Customizer
  */
 
 /**
@@ -48,8 +48,8 @@ function astroride_customize_register( $wp_customize ) {
 			'type'     => 'radio',
 			'label'    => __( 'Primary Color', 'astroride' ),
 			'choices'  => array(
-				'default'  => _x( 'Default', 'primary color', 'astroride' ),
-				'custom' => _x( 'Custom', 'primary color', 'astroride' ),
+				'default' => _x( 'Default', 'primary color', 'astroride' ),
+				'custom'  => _x( 'Custom', 'primary color', 'astroride' ),
 			),
 			'section'  => 'colors',
 			'priority' => 5,

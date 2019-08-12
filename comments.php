@@ -71,7 +71,7 @@ $discussion = astroride_get_discussion_data();
 			<?php
 			wp_list_comments(
 				array(
-					'walker'      => new astroride_Walker_Comment(),
+					'walker'      => new TwentyNineteen_Walker_Comment(),
 					'avatar_size' => astroride_get_avatar_size(),
 					'short_ping'  => true,
 					'style'       => 'ol',

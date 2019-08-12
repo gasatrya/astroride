@@ -1,12 +1,12 @@
 <?php
 /**
- * Twenty Nineteen functions and definitions
+ * Astroride functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  */
 
 /**
- * Twenty Nineteen only works in WordPress 4.7 or later.
+ * Astroride only works in WordPress 4.7 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
@@ -25,7 +25,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Twenty Nineteen, use a find and replace
+		 * If you're building a theme based on Astroride, use a find and replace
 		 * to change 'astroride' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'astroride', get_template_directory() . '/languages' );

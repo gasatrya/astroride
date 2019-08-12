@@ -38,5 +38,5 @@ $discussion = ! is_page() && astroride_can_show_post_thumbnail() ? astroride_get
 			'</span>'
 		);
 	?>
-</div><!-- .meta-info -->
+</div><!-- .entry-meta -->
 <?php endif; ?>

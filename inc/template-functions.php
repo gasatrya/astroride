@@ -108,7 +108,7 @@ function astroride_image_filters_enabled() {
 /**
  * Add custom sizes attribute to responsive image functionality for post thumbnails.
  *
- * @origin Twenty Nineteen 1.0
+ * @origin Astroride 1.0
  *
  * @param array $attr  Attributes for the image markup.
  * @return string Value for use in post thumbnail 'sizes' attribute.
@@ -357,14 +357,14 @@ function astroride_hsl_hex( $h, $s, $l, $to_hex = true ) {
 		$mid1;
 		$mid2;
 
-		$m = $l + $l - $v;
-		$sv = ( $v - $m ) / $v;
-		$h *= 6.0;
+		$m       = $l + $l - $v;
+		$sv      = ( $v - $m ) / $v;
+		$h      *= 6.0;
 		$sextant = floor( $h );
-		$fract = $h - $sextant;
-		$vsf = $v * $sv * $fract;
-		$mid1 = $m + $vsf;
-		$mid2 = $v - $vsf;
+		$fract   = $h - $sextant;
+		$vsf     = $v * $sv * $fract;
+		$mid1    = $m + $vsf;
+		$mid2    = $v - $vsf;
 
 		switch ( $sextant ) {
 			case 0:
