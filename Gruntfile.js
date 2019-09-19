@@ -15,69 +15,67 @@ module.exports = function ( grunt ) {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
 
-		bowercopy: {
-			options: {
-				clean: false
-			},
-			jsdev: {
-				options: {
-					destPrefix: 'assets/js/devs'
-				},
-				files: {
-					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
-					'retina.js': 'retinajs/dist/retina.js',
-					'html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
-				}
-			},
-			js: {
-				options: {
-					destPrefix: 'assets/js'
-				},
-				files: {
-					'html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
-				}
-			}
-			// css: {
-			// 	options: {
-			// 		destPrefix: 'assets/css/devs'
-			// 	},
-			// 	files: {
+		// bowercopy: {
+		// 	options: {
+		// 		clean: false
+		// 	},
+		// 	jsdev: {
+		// 		options: {
+		// 			destPrefix: 'assets/js/devs'
+		// 		},
+		// 		files: {
+		// 			'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
+		// 		}
+		// 	},
+		// 	js: {
+		// 		options: {
+		// 			destPrefix: 'assets/js'
+		// 		},
+		// 		files: {
+		// 			'html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
+		// 		}
+		// 	}
+		// 	css: {
+		// 		options: {
+		// 			destPrefix: 'assets/css/devs'
+		// 		},
+		// 		files: {
 
-			// 	}
-			// }
-		},
+		// 		}
+		// 	}
+		// },
 
 		// Concat and Minify our js.
-		uglify: {
-			dev: {
-				files: {
-					'assets/js/plugins.min.js': [
-						'assets/js/devs/**/*.js'
-					]
-				}
-			},
-			prod: {
-				files: {
-					'assets/js/<%= pkg.name %>.min.js': [ 'assets/js/plugins.min.js', 'assets/js/main.js' ]
-				}
-			}
-		},
+		// uglify: {
+		// 	dev: {
+		// 		files: {
+		// 			'assets/js/plugins.min.js': [
+		// 				'assets/js/devs/**/*.js'
+		// 			]
+		// 		}
+		// 	},
+		// 	prod: {
+		// 		files: {
+		// 			'assets/js/<%= pkg.name %>.min.js': [ 'assets/js/plugins.min.js', 'assets/js/main.js' ]
+		// 		}
+		// 	}
+		// },
 
 		// Minify CSS
-		cssmin: {
-			options: {
-				shorthandCompacting: false,
-				roundingPrecision: -1,
-				keepSpecialComments: 0
-			},
-			prod: {
-				files: {
-					'assets/css/plugins.min.css': [
-						'assets/css/devs/**/*.css'
-					]
-				}
-			}
-		},
+		// cssmin: {
+		// 	options: {
+		// 		shorthandCompacting: false,
+		// 		roundingPrecision: -1,
+		// 		keepSpecialComments: 0
+		// 	},
+		// 	prod: {
+		// 		files: {
+		// 			'assets/css/plugins.min.css': [
+		// 				'assets/css/devs/**/*.css'
+		// 			]
+		// 		}
+		// 	}
+		// },
 
 		// Compile our sass.
 		sass: {
@@ -302,18 +300,18 @@ module.exports = function ( grunt ) {
 	} );
 
 	// Setup task
-	grunt.registerTask( 'default', [
-		'bowercopy',
-		'uglify:dev',
-		'cssmin:prod',
-		'sass:dev'
-	] );
+	// grunt.registerTask( 'default', [
+	// 	'bowercopy',
+	// 	'uglify:dev',
+	// 	'cssmin:prod',
+	// 	'sass:dev'
+	// ] );
 
 	// Production task
 	grunt.registerTask( 'build', [
-		'newer:uglify:prod',
+		// 'newer:uglify:prod',
 		'newer:imagemin',
-		'sass:prod',
+		'sass',
 		'autoprefixer:prod',
 		'csscomb:main',
 		'makepot',

@@ -15,26 +15,6 @@ Our 2019 default theme is designed to show off the power of the block editor. It
 
 == Changelog ==
 
-= 1.4 =
-* Released: May 7, 2019
-
-https://codex.wordpress.org/Twenty_Nineteen_Theme_Changelog#Version_1.4
-
-= 1.3 =
-* Released: February 21, 2019
-
-https://codex.wordpress.org/Twenty_Nineteen_Theme_Changelog#Version_1.3
-
-= 1.2 =
-* Released: January 9, 2019
-
-https://codex.wordpress.org/Twenty_Nineteen_Theme_Changelog#Version_1.2
-
-= 1.1 =
-* Released: December 19, 2018
-
-https://codex.wordpress.org/Twenty_Nineteen_Theme_Changelog#Version_1.1
-
 = 1.0 =
 * Released: December 6, 2018
 

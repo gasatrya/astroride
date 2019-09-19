@@ -1,12 +1,4 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- */
-?><!doctype html>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -16,34 +8,55 @@
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'astroride' ); ?></a>
+<div class="site-wrapper">
 
-		<header id="masthead" class="<?php echo is_singular() && astroride_can_show_post_thumbnail() ? 'site-header featured-image' : 'site-header'; ?>">
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_attr_e( 'Skip to content', 'astroride' ); ?></a>
 
-			<div class="site-branding-container">
-				<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
-			</div><!-- .site-branding-container -->
+	<header class="header">
 
-			<?php if ( is_singular() && astroride_can_show_post_thumbnail() ) : ?>
-				<div class="site-featured-image">
+		<div class="header__left">
+
+			<div class="header__branding">
+				<?php astroride_site_branding(); ?>
+			</div>
+
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+				<nav class="header__navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'astroride' ); ?>">
 					<?php
-						astroride_post_thumbnail();
-						the_post();
-						$discussion = ! is_page() && astroride_can_show_post_thumbnail() ? astroride_get_discussion_data() : null;
-
-						$classes = 'entry-header';
-					if ( ! empty( $discussion ) && absint( $discussion->responses ) > 0 ) {
-						$classes = 'entry-header has-discussion';
-					}
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'menu_class'     => 'menu',
+							'container'      => false,
+						)
+					);
 					?>
-					<div class="<?php echo $classes; ?>">
-						<?php get_template_part( 'template-parts/header/entry', 'header' ); ?>
-					</div><!-- .entry-header -->
-					<?php rewind_posts(); ?>
-				</div>
+				</nav><!-- .header__navigation -->
 			<?php endif; ?>
-		</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+		</div><!-- .header__left -->
+
+		<div class="header__right">
+
+			<?php if ( has_nav_menu( 'social' ) ) : ?>
+				<nav class="header__social" aria-label="<?php esc_attr_e( 'Social Links Menu', 'astroride' ); ?>">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'social',
+							'menu_class'     => 'social-menu',
+							'link_before'    => '<span class="screen-reader-text">',
+							'link_after'     => '</span>' . astroride_get_icon_svg( 'link' ),
+							'depth'          => 1,
+							'container'      => false
+						)
+					);
+					?>
+				</nav><!-- .header__social -->
+			<?php endif; ?>
+
+		</div><!-- .header__right -->
+
+	</header><!-- .header -->
+
+	<div id="content" class="content">

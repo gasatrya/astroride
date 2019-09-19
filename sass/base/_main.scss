@@ -1,0 +1,34 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: var(--heebo);
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+	color: var(--primary-text-color);
+	background: var(--white-color);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Selection Color.
+ */
+::selection {
+	color: var(--white-color);
+	background: var(--primary-color);
+	text-shadow: none;
+}
+
+::-moz-selection {
+	color: var(--white-color);
+	background: var(--primary-color);
+	text-shadow: none;
+}

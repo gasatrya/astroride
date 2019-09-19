@@ -1,6 +1,10 @@
 <?php
 /**
  * SVG Icons class
+ *
+ * @package WordPress
+ * @subpackage Twenty_Nineteen
+ * @since 1.0.0
  */
 
 /**
@@ -15,7 +19,7 @@
  *
  * @since 1.0.0
  */
-class TwentyNineteen_SVG_Icons {
+class Astroride_SVG_Icons {
 
 	/**
 	 * Gets the SVG code for a given icon.

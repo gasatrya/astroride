@@ -11,8 +11,6 @@
  * Prevent switching to Astroride on old versions of WordPress.
  *
  * Switches to the default theme.
- *
- * @since Astroride 1.0.0
  */
 function astroride_switch_theme() {
 	switch_theme( WP_DEFAULT_THEME );
@@ -27,8 +25,6 @@ add_action( 'after_switch_theme', 'astroride_switch_theme' );
  * Prints an update nag after an unsuccessful attempt to switch to
  * Astroride on WordPress versions prior to 4.7.
  *
- * @since Astroride 1.0.0
- *
  * @global string $wp_version WordPress version.
  */
 function astroride_upgrade_notice() {
@@ -38,8 +34,6 @@ function astroride_upgrade_notice() {
 
 /**
  * Prevents the Customizer from being loaded on WordPress versions prior to 4.7.
- *
- * @since Astroride 1.0.0
  *
  * @global string $wp_version WordPress version.
  */
@@ -59,8 +53,6 @@ add_action( 'load-customize.php', 'astroride_customize' );
 
 /**
  * Prevents the Theme Preview from being loaded on WordPress versions prior to 4.7.
- *
- * @since Astroride 1.0.0
  *
  * @global string $wp_version WordPress version.
  */

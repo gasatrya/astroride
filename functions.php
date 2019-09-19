@@ -52,9 +52,8 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'astroride' ),
-				'footer' => __( 'Footer Menu', 'astroride' ),
-				'social' => __( 'Social Links Menu', 'astroride' ),
+				'primary' => esc_html__( 'Primary', 'astroride' ),
+				'social'  => esc_html__( 'Social Links Menu', 'astroride' ),
 			)
 		);
 
@@ -135,36 +134,36 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		);
 
 		// Editor color palette.
-		add_theme_support(
-			'editor-color-palette',
-			array(
-				array(
-					'name'  => __( 'Primary', 'astroride' ),
-					'slug'  => 'primary',
-					'color' => astroride_hsl_hex( 'default' === get_theme_mod( 'primary_color' ) ? 199 : get_theme_mod( 'primary_color_hue', 199 ), 100, 33 ),
-				),
-				array(
-					'name'  => __( 'Secondary', 'astroride' ),
-					'slug'  => 'secondary',
-					'color' => astroride_hsl_hex( 'default' === get_theme_mod( 'primary_color' ) ? 199 : get_theme_mod( 'primary_color_hue', 199 ), 100, 23 ),
-				),
-				array(
-					'name'  => __( 'Dark Gray', 'astroride' ),
-					'slug'  => 'dark-gray',
-					'color' => '#111',
-				),
-				array(
-					'name'  => __( 'Light Gray', 'astroride' ),
-					'slug'  => 'light-gray',
-					'color' => '#767676',
-				),
-				array(
-					'name'  => __( 'White', 'astroride' ),
-					'slug'  => 'white',
-					'color' => '#FFF',
-				),
-			)
-		);
+		// add_theme_support(
+		// 	'editor-color-palette',
+		// 	array(
+		// 		array(
+		// 			'name'  => __( 'Primary', 'astroride' ),
+		// 			'slug'  => 'primary',
+		// 			'color' => astroride_hsl_hex( 'default' === get_theme_mod( 'primary_color' ) ? 199 : get_theme_mod( 'primary_color_hue', 199 ), 100, 33 ),
+		// 		),
+		// 		array(
+		// 			'name'  => __( 'Secondary', 'astroride' ),
+		// 			'slug'  => 'secondary',
+		// 			'color' => astroride_hsl_hex( 'default' === get_theme_mod( 'primary_color' ) ? 199 : get_theme_mod( 'primary_color_hue', 199 ), 100, 23 ),
+		// 		),
+		// 		array(
+		// 			'name'  => __( 'Dark Gray', 'astroride' ),
+		// 			'slug'  => 'dark-gray',
+		// 			'color' => '#111',
+		// 		),
+		// 		array(
+		// 			'name'  => __( 'Light Gray', 'astroride' ),
+		// 			'slug'  => 'light-gray',
+		// 			'color' => '#767676',
+		// 		),
+		// 		array(
+		// 			'name'  => __( 'White', 'astroride' ),
+		// 			'slug'  => 'white',
+		// 			'color' => '#FFF',
+		// 		),
+		// 	)
+		// );
 
 		// Add support for responsive embedded content.
 		add_theme_support( 'responsive-embeds' );
@@ -215,14 +214,14 @@ add_action( 'after_setup_theme', 'astroride_content_width', 0 );
 function astroride_scripts() {
 	wp_enqueue_style( 'astroride-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 
-	wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
+	// wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
 
-	if ( has_nav_menu( 'menu-1' ) ) {
-		wp_enqueue_script( 'astroride-priority-menu', get_theme_file_uri( '/assets/js/priority-menu.js' ), array(), '1.1', true );
-		wp_enqueue_script( 'astroride-touch-navigation', get_theme_file_uri( '/assets/js/touch-keyboard-navigation.js' ), array(), '1.1', true );
-	}
+	// if ( has_nav_menu( 'menu-1' ) ) {
+	// 	wp_enqueue_script( 'astroride-priority-menu', get_theme_file_uri( '/assets/js/priority-menu.js' ), array(), '1.1', true );
+	// 	wp_enqueue_script( 'astroride-touch-navigation', get_theme_file_uri( '/assets/js/touch-keyboard-navigation.js' ), array(), '1.1', true );
+	// }
 
-	wp_enqueue_style( 'astroride-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+	// wp_enqueue_style( 'astroride-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -257,11 +256,11 @@ function astroride_editor_customizer_styles() {
 
 	if ( 'custom' === get_theme_mod( 'primary_color' ) ) {
 		// Include color patterns.
-		require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
+		// require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
 		wp_add_inline_style( 'astroride-editor-customizer-styles', astroride_custom_colors_css() );
 	}
 }
-add_action( 'enqueue_block_editor_assets', 'astroride_editor_customizer_styles' );
+// add_action( 'enqueue_block_editor_assets', 'astroride_editor_customizer_styles' );
 
 /**
  * Display custom color CSS in customizer and on frontend.
@@ -273,7 +272,7 @@ function astroride_colors_css_wrap() {
 		return;
 	}
 
-	require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
+	// require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
 
 	$primary_color = 199;
 	if ( 'default' !== get_theme_mod( 'primary_color', 'default' ) ) {
@@ -286,17 +285,17 @@ function astroride_colors_css_wrap() {
 	</style>
 	<?php
 }
-add_action( 'wp_head', 'astroride_colors_css_wrap' );
+// add_action( 'wp_head', 'astroride_colors_css_wrap' );
 
 /**
  * SVG Icons class.
  */
-require get_template_directory() . '/classes/class-astroride-svg-icons.php';
+require get_template_directory() . '/inc/class-svg-icons.php';
 
-/**
- * Custom Comment Walker template.
- */
-require get_template_directory() . '/classes/class-astroride-walker-comment.php';
+// /**
+//  * Custom Comment Walker template.
+//  */
+// require get_template_directory() . '/classes/class-astroride-walker-comment.php';
 
 /**
  * Enhance the theme by hooking into WordPress.
@@ -313,7 +312,7 @@ require get_template_directory() . '/inc/icon-functions.php';
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+// /**
+//  * Customizer additions.
+//  */
+// require get_template_directory() . '/inc/customizer.php';
