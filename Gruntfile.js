@@ -5,8 +5,7 @@ module.exports = function ( grunt ) {
 
 	// Load all Grunt tasks
 	require( 'jit-grunt' )( grunt, {
-		makepot: 'grunt-wp-i18n',
-		uglify: 'grunt-contrib-uglify-es'
+		makepot: 'grunt-wp-i18n'
 	} );
 
 	const sass = require( 'node-sass' );
@@ -14,36 +13,6 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
-
-		// bowercopy: {
-		// 	options: {
-		// 		clean: false
-		// 	},
-		// 	jsdev: {
-		// 		options: {
-		// 			destPrefix: 'assets/js/devs'
-		// 		},
-		// 		files: {
-		// 			'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
-		// 		}
-		// 	},
-		// 	js: {
-		// 		options: {
-		// 			destPrefix: 'assets/js'
-		// 		},
-		// 		files: {
-		// 			'html5shiv.min.js': 'html5shiv/dist/html5shiv.min.js',
-		// 		}
-		// 	}
-		// 	css: {
-		// 		options: {
-		// 			destPrefix: 'assets/css/devs'
-		// 		},
-		// 		files: {
-
-		// 		}
-		// 	}
-		// },
 
 		// Concat and Minify our js.
 		// uglify: {
