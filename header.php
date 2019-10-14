@@ -24,10 +24,11 @@
 
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<nav class="header__navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'astroride' ); ?>">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'astroride' ); ?></button>
 					<?php
 					wp_nav_menu(
 						array(
-							'theme_location' => 'primary',
+							'theme_location' => 'menu-1',
 							'menu_class'     => 'menu',
 							'container'      => false,
 						)
