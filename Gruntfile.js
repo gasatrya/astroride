@@ -1,8 +1,5 @@
 module.exports = function ( grunt ) {
 
-	// require it at the top and pass in the grunt instance
-	require( 'time-grunt' )( grunt );
-
 	// Load all Grunt tasks
 	require( 'jit-grunt' )( grunt, {
 		makepot: 'grunt-wp-i18n'
