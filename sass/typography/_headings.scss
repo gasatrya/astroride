@@ -1,3 +1,30 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	font-weight: 400;
 }
+
+h1 {
+	@include ms-respond(font-size, 6);
+	// font-size: ms(6); // 2.985984em
+}
+
+h2 {
+	@include ms-respond(font-size, 5);
+}
+
+h3 {
+	@include ms-respond(font-size, 4);
+}
+
+h4 {
+	@include ms-respond(font-size, 3);
+}
+
+h5 {
+	@include ms-respond(font-size, 2);
+}
+
+h6 {
+	@include ms-respond(font-size, 1);
+}
+

@@ -4,15 +4,13 @@ html {
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*:after {
 	box-sizing: border-box;
 }
 
 body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 hr {

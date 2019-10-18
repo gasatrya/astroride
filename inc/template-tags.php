@@ -1,6 +1,10 @@
 <?php
 /**
- * Custom template tags for Astroride theme.
+ * Custom template tags for this theme
+ *
+ * Eventually, some of the functionality here could be replaced by core features.
+ *
+ * @package Astroride
  */
 
 if ( ! function_exists( 'astroride_site_branding' ) ) :
@@ -36,14 +40,6 @@ if ( ! function_exists( 'astroride_site_branding' ) ) :
 
 	}
 endif;
-
-/**
- * Custom template tags for this theme
- *
- * Eventually, some of the functionality here could be replaced by core features.
- *
- * @package Astroride
- */
 
 if ( ! function_exists( 'astroride_posted_on' ) ) :
 	/**

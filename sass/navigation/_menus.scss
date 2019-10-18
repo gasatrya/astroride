@@ -1,25 +1,25 @@
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+.header__navigation {
+	text-align: center;
 
 	ul {
+		@extend %reset-list;
 		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
 			z-index: 99999;
+			text-align: left;
+			background-color: $color__background-submenu;
+			padding: em(10px) 0;
+			visibility: hidden;
+			opacity: 0;
+			transition: 300ms ease-in-out;
 
 			ul {
-				left: -999em;
+				left: 100%;
 				top: 0;
 			}
 
@@ -28,10 +28,20 @@
 				&.focus > ul {
 					left: 100%;
 				}
+
+				&.menu-item-has-children {
+					> a {
+						&::after {
+							content: '';
+						}
+					}
+				}
 			}
 
 			a {
-				width: 200px;
+				width: 180px;
+				padding: em(10px) 0;
+				color: $color__menu-link-submenu;
 			}
 
 			:hover > a,
@@ -46,21 +56,51 @@
 		li:hover > ul,
 		li.focus > ul {
 			left: auto;
+			visibility: visible;
+			opacity: 1;
 		}
 	}
 
 	li {
-		float: left;
 		position: relative;
+		display: inline-block;
+		padding-left: em(14px);
+		padding-right: em(14px);
 
 		&:hover > a,
 		&.focus > a {
+			color: $color__menu-link-hover;
+		}
+
+		&.menu-item-has-children {
+			> a {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+
+				&::after {
+					content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'></path><path fill='none' d='M0 0h24v24H0V0z'></path></svg>");
+					display: inline-block;
+					width: 16px;
+					height: 16px;
+					margin-left: em(3px);
+				}
+			}
 		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
+		font-size: em(14px);
+		text-transform: uppercase;
+		color: $color__menu-link;
+		letter-spacing: em(1px);
+		padding: 1.36em 0;
+
+		&:hover {
+			color: $color__menu-link-hover;
+		}
 	}
 
 	.current_page_item > a,
@@ -72,7 +112,7 @@
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.header__navigation.toggled ul {
 	display: block;
 }
 
@@ -80,7 +120,7 @@
 	.menu-toggle {
 		display: none;
 	}
-	.main-navigation ul {
+	.header__navigation ul {
 		display: block;
 	}
 }

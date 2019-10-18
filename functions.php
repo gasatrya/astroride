@@ -54,6 +54,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'astroride' ),
+			'social' => esc_html__( 'Social', 'astroride' ),
 		) );
 
 		/*
@@ -196,17 +197,51 @@ add_action( 'widgets_init', 'astroride_widgets_init' );
  * Enqueue scripts and styles.
  */
 function astroride_scripts() {
+
+	wp_enqueue_style( 'astroride-fonts', astroride_fonts_url(), array(), null );
+
 	wp_enqueue_style( 'astroride-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'astroride-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), wp_get_theme()->get( 'Version' ), true );
 
 	wp_enqueue_script( 'astroride-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), wp_get_theme()->get( 'Version' ), true );
 
+	wp_enqueue_script( 'astroride-custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), wp_get_theme()->get( 'Version' ), true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'astroride_scripts' );
+
+/**
+ * Register custom fonts.
+ */
+function astroride_fonts_url() {
+	$fonts_url = '';
+
+	/*
+	 * Translators: If there are characters in your language that are not
+	 * supported by Amiri, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$libre_franklin = _x( 'on', 'Amiri font: on or off', 'astroride' );
+
+	if ( 'off' !== $libre_franklin ) {
+		$font_families = array();
+
+		$font_families[] = 'Amiri:400,400i,700,700i';
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
+}
 
 /**
  * Implement the Custom Header feature.
@@ -224,9 +259,10 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Customizer additions.
+ * SVG Icons related functions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/classes/class-svg-icons.php';
+require get_template_directory() . '/inc/icon-functions.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -234,3 +270,16 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+/**
+ * Load Kirki compatibility file.
+ */
+require get_template_directory() . '/inc/extensions/kirki/kirki.php';
+require get_template_directory() . '/inc/customizer.php';

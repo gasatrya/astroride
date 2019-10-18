@@ -30,6 +30,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Navigation
 	## Links
 	## Menus
+	## Social
 # Accessibility
 # Alignments
 # Clearings
@@ -45,6 +46,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 @import "mixins/grid";
+
+// Modular scale
+@import 'modularscale/modularscale';
+$modularscale: (
+	base: 1em,
+	ratio: 1.2,
+	48em: (
+		ratio: 1.2,
+	),
+	80em: (
+		ratio: 1.25,
+	),
+);
 
 /*--------------------------------------------------------------
 # Normalize

@@ -29,6 +29,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Navigation
 	## Links
 	## Menus
+	## Social
 # Accessibility
 # Alignments
 # Clearings
@@ -41,6 +42,73 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1. Functions
+2. Mixins
+3. Placeholders
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+1. Functions
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2. Mixins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+3. Placeholders
+--------------------------------------------------------------*/
+.header__topbar-container, .header__branding-container {
+  max-width: 75em;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__topbar-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.header__navigation ul, .header__social ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aligncenter, .wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -386,14 +454,111 @@ select,
 optgroup,
 textarea {
   color: #404040;
-  font-family: sans-serif;
-  font-size: 16px;
+  font-family: "Amiri", serif;
   font-size: 1em;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.55;
 }
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.985984em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h1 {
+    font-size: calc( 2.985984em + 0.8287132656 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h1 {
+    font-size: 3.8146972656em;
+  }
+}
+
+h2 {
+  font-size: 2.48832em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h2 {
+    font-size: calc( 2.48832em + 0.5634378125 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h2 {
+    font-size: 3.0517578125em;
+  }
+}
+
+h3 {
+  font-size: 2.0736em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h3 {
+    font-size: calc( 2.0736em + 0.36780625 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h3 {
+    font-size: 2.44140625em;
+  }
+}
+
+h4 {
+  font-size: 1.728em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h4 {
+    font-size: calc( 1.728em + 0.225125 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h4 {
+    font-size: 1.953125em;
+  }
+}
+
+h5 {
+  font-size: 1.44em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h5 {
+    font-size: calc( 1.44em + 0.1225 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h5 {
+    font-size: 1.5625em;
+  }
+}
+
+h6 {
+  font-size: 1.2em;
+}
+
+@media (min-width: 48em) and (max-width: 80em) {
+  h6 {
+    font-size: calc( 1.2em + 0.05 * ( ( 100vw - 48em) / 32 ));
+  }
+}
+
+@media (min-width: 80em) {
+  h6 {
+    font-size: 1.25em;
+  }
 }
 
 p {
@@ -454,7 +619,6 @@ html {
 *,
 *:before,
 *:after {
-  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: border-box;
 }
 
@@ -462,8 +626,6 @@ body {
   background: #fff;
   /* Fallback for when there is no custom background color defined. */
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 hr {
@@ -590,6 +752,7 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
   color: #111;
+  outline: 0;
 }
 
 select {
@@ -607,15 +770,16 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  color: royalblue;
+  color: #c3a576;
+  transition: all 250ms ease-in-out;
 }
 
 a:visited {
-  color: purple;
+  color: #b9893e;
 }
 
 a:hover, a:focus, a:active {
-  color: midnightblue;
+  color: #b9893e;
 }
 
 a:focus {
@@ -629,61 +793,101 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
+.header__navigation {
+  text-align: center;
 }
 
-.main-navigation ul {
+.header__navigation ul {
   display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
 }
 
-.main-navigation ul ul {
+.header__navigation ul ul {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
   position: absolute;
   top: 100%;
   left: -999em;
   z-index: 99999;
+  text-align: left;
+  background-color: #fff;
+  padding: 0.625em 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms ease-in-out;
 }
 
-.main-navigation ul ul ul {
-  left: -999em;
+.header__navigation ul ul ul {
+  left: 100%;
   top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.header__navigation ul ul li:hover > ul,
+.header__navigation ul ul li.focus > ul {
   left: 100%;
 }
 
-.main-navigation ul ul a {
-  width: 200px;
+.header__navigation ul ul li.menu-item-has-children > a::after {
+  content: '';
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.header__navigation ul ul a {
+  width: 180px;
+  padding: 0.625em 0;
+  color: #404040;
+}
+
+.header__navigation ul li:hover > ul,
+.header__navigation ul li.focus > ul {
   left: auto;
+  visibility: visible;
+  opacity: 1;
 }
 
-.main-navigation li {
-  float: left;
+.header__navigation li {
   position: relative;
+  display: inline-block;
+  padding-left: 0.875em;
+  padding-right: 0.875em;
 }
 
-.main-navigation a {
+.header__navigation li:hover > a,
+.header__navigation li.focus > a {
+  color: #c3a576;
+}
+
+.header__navigation li.menu-item-has-children > a {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.header__navigation li.menu-item-has-children > a::after {
+  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'></path><path fill='none' d='M0 0h24v24H0V0z'></path></svg>");
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.1875em;
+}
+
+.header__navigation a {
   display: block;
   text-decoration: none;
+  font-size: 0.875em;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.0625em;
+  padding: 1.36em 0;
+}
+
+.header__navigation a:hover {
+  color: #c3a576;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.header__navigation.toggled ul {
   display: block;
 }
 
@@ -691,7 +895,7 @@ a:hover, a:active {
   .menu-toggle {
     display: none;
   }
-  .main-navigation ul {
+  .header__navigation ul {
     display: block;
   }
 }
@@ -719,13 +923,99 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
+## Social
+--------------------------------------------------------------*/
+.header__social {
+  position: absolute;
+  left: 0;
+  line-height: 0;
+}
+
+.header__social li {
+  display: inline-block;
+  position: relative;
+  margin-right: 0.375em;
+}
+
+.header__social a {
+  display: block;
+}
+
+.header__social .svg-icon {
+  width: 1.125em;
+}
+
+.header__social path {
+  fill: #fff;
+}
+
+/*--------------------------------------------------------------
+## Search
+--------------------------------------------------------------*/
+.header__search {
+  position: absolute;
+  right: 0;
+  line-height: 0;
+  padding: 1.11em 0;
+}
+
+.header__search:hover .header__search-form-wrapper {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header__search-link {
+  display: block;
+}
+
+.header__search path:nth-child(1) {
+  fill: #fff;
+}
+
+.header__search-form-wrapper {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 99999;
+  text-align: left;
+  background-color: #fff;
+  padding: 0.625em;
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms ease-in-out;
+  min-width: 300px;
+}
+
+.header__search-form input[type="search"] {
+  border: 0;
+  width: 100%;
+}
+
+.header__search-form input[type="search"]::-webkit-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.header__search-form input[type="search"]:-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.header__search-form input[type="search"]::placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+/*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -741,7 +1031,8 @@ a:hover, a:active {
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
-  clip-path: none;
+  -webkit-clip-path: none;
+          clip-path: none;
   color: #21759b;
   display: block;
   font-size: 14px;
@@ -780,40 +1071,11 @@ a:hover, a:active {
 
 .aligncenter {
   clear: both;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
-  content: "";
-  display: table;
-  table-layout: fixed;
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-  clear: both;
-}
-
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
@@ -829,6 +1091,33 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.header__topbar {
+  background-color: #191919;
+}
+
+.header__topbar-container {
+  position: relative;
+}
+
+.header__topbar-wrapper {
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 3.75em;
+}
+
+.header__branding-container {
+  position: relative;
+}
+
+.header__branding-wrapper {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -914,12 +1203,6 @@ object {
   max-width: 100%;
 }
 
-.wp-caption img[class*="wp-image-"] {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .wp-caption .wp-caption-text {
   margin: 0.8075em 0;
 }
@@ -977,5 +1260,4 @@ object {
 .gallery-caption {
   display: block;
 }
-
 /*# sourceMappingURL=style.css.map */

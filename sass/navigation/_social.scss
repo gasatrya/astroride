@@ -1,0 +1,27 @@
+.header__social {
+	position: absolute;
+	left: 0;
+	line-height: 0;
+
+	ul {
+		@extend %reset-list;
+	}
+
+	li {
+		display: inline-block;
+		position: relative;
+		margin-right: em(6px);
+	}
+
+	a {
+		display: block;
+	}
+
+	.svg-icon {
+		width: em(18px);
+	}
+
+	path {
+		fill: $color__menu-social;
+	}
+}

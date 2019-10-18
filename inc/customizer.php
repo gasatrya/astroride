@@ -1,6 +1,6 @@
 <?php
 /**
- * Astroride Theme Customizer
+ * _s Theme Customizer
  *
  * @package Astroride
  */
@@ -47,9 +47,46 @@ function astroride_customize_partial_blogdescription() {
 }
 
 /**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ * This function adds some styles to the WordPress Customizer
  */
-function astroride_customize_preview_js() {
-	wp_enqueue_script( '_s-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function astroride_custom_customizer_style() { ?>
+	<style>
+		.customize-control {
+			margin-bottom: 20px;
+		}
+		.select2-container .select2-selection--single {
+			height: 30px;
+		}
+		.customize-control-kirki-radio-image .image label {
+			width: 30%;
+			line-height: 1;
+			margin-right: 3%;
+			margin-bottom: 2%;
+		}
+		.customize-control-kirki-radio-image input:checked + label img {
+			box-shadow: none;
+			border: none;
+			outline: 2px solid #3498DB;
+		}
+	</style>
+	<?php
 }
-add_action( 'customize_preview_init', 'astroride_customize_preview_js' );
+add_action( 'customize_controls_print_styles', 'astroride_custom_customizer_style', 999 );
+
+/**
+ * Add the configuration.
+ * This way all the fields using the 'astroride_options' ID
+ * will inherit these options
+ */
+Kirki::add_config( 'astroride_options', array(
+	'capability'    => 'edit_theme_options',
+	'option_type'   => 'theme_mod',
+) );
+
+/**
+ * Disable Kirki loader
+ */
+add_filter( 'kirki/config', function( $config ) {
+	$config['disable_loader'] = true;
+	return $config;
+} );

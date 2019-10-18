@@ -1,0 +1,34 @@
+.header {
+
+	&__topbar {
+		background-color: $color__background-header;
+
+		&-container {
+			@extend %container;
+			position: relative;
+		}
+
+		&-wrapper {
+			@extend %flex;
+			justify-content: center;
+			align-items: center;
+			height: em(60px);
+		}
+
+	}
+
+	&__branding {
+
+		&-container {
+			@extend %container;
+			position: relative;
+		}
+
+		&-wrapper {
+			text-align: center;
+		}
+
+	}
+
+
+}

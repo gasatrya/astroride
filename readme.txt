@@ -1,25 +1,38 @@
-=== Astroride ===
-Contributors: wordpressdotorg
-Tags: one-column, flexible-header, accessibility-ready, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, rtl-language-support, sticky-post, threaded-comments, translation-ready
-Requires at least: 4.9.6
-Tested up to: WordPress 5.0
-Requires PHP: 5.2.4
-Stable tag: 1.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+=== _s ===
 
-Our 2019 default theme is designed to show off the power of the block editor.
+Contributors: automattic
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+Requires at least: 4.5
+Tested up to: 4.8
+Stable tag: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+
+A starter theme called _s, or underscores.
 
 == Description ==
-Our 2019 default theme is designed to show off the power of the block editor. It features custom styles for all the default blocks, and is built so that what you see in the editor looks like what you'll see on your website. Astroride is designed to be adaptable to a wide range of websites, whether you’re running a photo blog, launching a new business, or supporting a non-profit. Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, it's built to be beautiful on all screen sizes.
+
+Hi. I'm a starter theme called _s, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+
+== Installation ==
+
+1. In your admin panel, go to Appearance > Themes and click the Add New button.
+2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
+3. Click Activate to use your new theme right away.
+
+== Frequently Asked Questions ==
+
+= Does this theme support any plugins? =
+
+_s includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 =
-* Released: December 6, 2018
+= 1.0 - May 12 2015 =
+* Initial release
 
-Initial release
+== Credits ==
 
-== Resources ==
-* normalize.css, © 2012-2018 Nicolas Gallagher and Jonathan Neal, MIT
-* Underscores, © 2012-2018 Automattic, Inc., GNU GPL v2 or later
+* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

@@ -35,3 +35,34 @@ function astroride_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'astroride_pingback_header' );
+
+/**
+ * Adds custom class to the array of posts classes.
+ */
+function astroride_post_classes( $classes, $class, $post_id ) {
+	$classes[] = 'entry';
+
+	return $classes;
+}
+add_filter( 'post_class', 'astroride_post_classes', 10, 3 );
+
+/**
+ * Customize tag cloud widget
+ */
+function astroride_customize_tag_cloud( $args ) {
+	$args['largest']  = 13;
+	$args['smallest'] = 13;
+	$args['unit']     = 'px';
+	$args['number']   = 20;
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'astroride_customize_tag_cloud' );
+
+/**
+ * Change the excerpt more string.
+ */
+function astroride_excerpt_more( $more ) {
+	return '&hellip;';
+}
+
+add_filter( 'excerpt_more', 'astroride_excerpt_more' );

@@ -55,26 +55,6 @@ module.exports = function ( grunt ) {
 					'style.css': 'sass/style.scss',
 				}
 			},
-			editor: {
-				options: {
-					implementation: sass,
-					outputStyle: 'expanded',
-					sourceMap: false
-				},
-				files: {
-					'style-editor.css': 'sass/style-editor.scss',
-				}
-			},
-			print: {
-				options: {
-					implementation: sass,
-					outputStyle: 'expanded',
-					sourceMap: false
-				},
-				files: {
-					'print.css': 'sass/print.scss',
-				}
-			},
 			prod: {
 				options: {
 					implementation: sass,
@@ -83,7 +63,6 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'style.min.css': 'sass/style.scss',
-					'style-editor.css': 'sass/style-editor.scss',
 				}
 			}
 		},
@@ -120,9 +99,7 @@ module.exports = function ( grunt ) {
 				config: '.csscomb.json'
 			},
 			main: {
-				files: {
-					'style.css': [ 'style.css' ]
-				}
+				src: [ 'style.css' ]
 			}
 		},
 
@@ -152,12 +129,9 @@ module.exports = function ( grunt ) {
 					'autoprefixer:dev',
 				]
 			},
-			editor: {
-				files: [ 'sass/style-editor.scss' ],
-				tasks: [
-					'sass:editor'
-				]
-			},
+			js: {
+				files: [ 'assets/js/**/*.js' ],
+			}
 		},
 
 		// Images minify
@@ -186,7 +160,7 @@ module.exports = function ( grunt ) {
 					'!node_modules/**',
 					'!bower_components/**',
 					'!build/**',
-					'!sass/**',
+					'!scss/**',
 					'!.git/**',
 					'!Gruntfile.js',
 					'!package.json',
@@ -238,7 +212,7 @@ module.exports = function ( grunt ) {
 						'build/.*',
 						'assets/.*',
 						'readme/.*',
-						'sass/.*',
+						'scss/.*',
 						'bower_components/.*',
 						'node_modules/.*'
 					],
@@ -248,8 +222,8 @@ module.exports = function ( grunt ) {
 					processPot: function ( pot, options ) {
 						pot.headers[ 'report-msgid-bugs-to' ] = 'satrya@idenovasi.com';
 						pot.headers[ 'plural-forms' ] = 'nplurals=2; plural=n != 1;';
-						pot.headers[ 'last-translator' ] = 'Idenovasi (satrya@idenovasi.com)';
-						pot.headers[ 'language-team' ] = 'Idenovasi (satrya@idenovasi.com)';
+						pot.headers[ 'last-translator' ] = 'Satrya (satrya@idenovasi.com)';
+						pot.headers[ 'language-team' ] = 'Satrya (satrya@idenovasi.com)';
 						pot.headers[ 'x-poedit-basepath' ] = '..\n';
 						pot.headers[ 'x-poedit-language' ] = 'English\n';
 						pot.headers[ 'x-poedit-country' ] = 'UNITED STATES\n';
@@ -266,18 +240,16 @@ module.exports = function ( grunt ) {
 	} );
 
 	// Setup task
-	// grunt.registerTask( 'default', [
-	// 	'bowercopy',
-	// 	'uglify:dev',
-	// 	'cssmin:prod',
-	// 	'sass:dev'
-	// ] );
+	grunt.registerTask( 'default', [
+		// 'uglify:dev',
+		// 'cssmin:prod',
+	] );
 
 	// Production task
 	grunt.registerTask( 'build', [
 		// 'newer:uglify:prod',
 		'newer:imagemin',
-		'sass',
+		'sass:prod',
 		'autoprefixer:prod',
 		'csscomb:main',
 		'makepot',
