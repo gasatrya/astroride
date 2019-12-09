@@ -42,9 +42,11 @@ Thumbs.db
 *.avi
 
 # development area
-*.map
 /.sass-cache
 /node_modules
 /build
 /bower_components
 
+# special files
+*.map
+*.editorconfig
