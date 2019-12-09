@@ -91,19 +91,14 @@ module.exports = function( grunt ) {
 				src: [
 					'**',
 					'!node_modules/**',
-					'!bower_components/**',
 					'!build/**',
 					'!scss/**',
 					'!.git/**',
 					'!Gruntfile.js',
 					'!package.json',
 					'!package-lock.json',
-					'!.csscomb.json',
 					'!.editorconfig',
-					'!.tern-project',
-					'!bower.json',
 					'!.gitignore',
-					'!.jshintrc',
 					'!.DS_Store',
 					'!*.map',
 					'!**/*.map',
@@ -188,12 +183,12 @@ module.exports = function( grunt ) {
 		'postcss',
 		'rtlcss',
 		'makepot',
-		'copy'
 	] );
 
 	// Package task
 	grunt.registerTask( 'package', [
-		'compress',
+		'copy',
+		'compress'
 	] );
 
 };

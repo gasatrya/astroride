@@ -15,8 +15,6 @@
 get_header();
 ?>
 
-	<?php astroride_featured_posts(); ?>
-
 	<?php
 	// Home layout.
 	$home_layout = get_theme_mod( 'home_layout', 'list' );

@@ -52,8 +52,6 @@
 
 </div><!-- .site -->
 
-<?php astroride_back_to_top(); ?>
-
 <?php wp_footer(); ?>
 
 </body>

@@ -63,7 +63,6 @@ $switch  = get_theme_mod( 'post_switch_related', 'related' );
 				<?php if ( true == $footer ) : ?>
 					<div class="post__footer">
 						<?php astroride_posted_by(); ?>
-						<?php astroride_share_buttons(); ?>
 					</div><!-- .post__footer -->
 				<?php endif; ?>
 

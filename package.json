@@ -13,6 +13,7 @@
     "grunt-contrib-imagemin": "^3.1.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-rtlcss": "^2.0.2",
+    "grunt-sass": "^3.1.0",
     "grunt-wp-i18n": "^1.0.3",
     "jit-grunt": "^0.10.0",
     "node-sass": "^4.13.0"

@@ -309,136 +309,6 @@ if ( ! function_exists( 'astroride_related_posts' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'astroride_share_buttons' ) ) :
-	/**
-	 * Social Share Buttons
-	 */
-	function astroride_share_buttons() { ?>
-		<div class="post__share">
-			<div class="post__share-title screen-reader-text"><?php esc_html_e( 'Share:', 'astroride' ); ?></div>
-			<div class="post__share-items">
-				<a class="post__share-item" href="https://twitter.com/intent/tweet?text=<?php echo esc_attr( get_the_title( get_the_ID() ) ); ?>&url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><?php echo astroride_get_social_icon_svg( 'twitter' ); ?></a>
-				<a class="post__share-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><?php echo astroride_get_social_icon_svg( 'facebook' ); ?></a>
-				<a class="post__share-item" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><?php echo astroride_get_social_icon_svg( 'linkedin' ); ?></a>
-			</div>
-		</div>
-		<?php
-	}
-endif;
-
-if ( ! function_exists( 'astroride_featured_posts' ) ) :
-	/**
-	 * Featured Posts
-	 */
-	function astroride_featured_posts() {
-
-		// On home page only.
-		if ( !is_home() ) {
-			return;
-		}
-
-		// Get the customizer data
-		$enable = get_theme_mod( 'featured_enable', 1 );
-
-		// Return early if disabled
-		if ( !$enable ) {
-			return;
-		}
-
-		// Main post query
-		$query = array(
-			'post_type'           => 'post',
-			'posts_per_page'      => 3,
-		);
-
-		// Get the sticky post ids
-		$sticky = get_option( 'sticky_posts' );
-
-		// Get the tag id
-		$tag_id = get_theme_mod( 'featured_tag', 'featured' );
-
-		// Set an empty variable
-		$term = '';
-
-		if ( $tag_id ) {
-			$term = get_term_by( 'name', $tag_id, 'post_tag' );
-		}
-
-		// Adds the custom arguments to the main query
-		if ( $term ) {
-			$query['tag_id'] = $term->term_id;
-		} else {
-			$query['post__in'] = $sticky;
-		}
-
-		// Allow dev to filter the query.
-		$query = apply_filters( 'astroride_featured_posts_args', $query );
-
-		// Perform query
-		$featured = new WP_Query( $query );
-
-		// Wrapper classes
-		$wrap_classes = array( 'featured' );
-		$wrap_classes = implode( ' ', $wrap_classes ); ?>
-
-		<?php if ( $featured->have_posts() ) : ?>
-
-			<div class="<?php echo esc_attr( $wrap_classes ); ?>">
-				<div class="featured__container">
-					<div class="featured__wrapper">
-
-						<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
-
-							<?php $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>
-
-							<?php if ( $featured->current_post == 0 ) : ?>
-
-								<div class="featured__big">
-
-									<article class="featured__post featured__post-big" style="background-image: url('<?php echo esc_url( $featured_img_url ); ?>');">
-										<a class="featured__post-link" href="<?php the_permalink(); ?>"></a>
-										<div class="featured__content">
-											<?php the_title( '<h2 class="featured__title"><a class="featured__title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-											<div class="post__meta">
-												<?php astroride_posted_on(); ?>
-												<?php astroride_post_category(); ?>
-											</div>
-										</div>
-									</article>
-
-								</div>
-
-								<div class="featured__small">
-							<?php else : ?>
-
-									<article class="featured__post featured__post-small" style="background-image: url('<?php echo esc_url( $featured_img_url ); ?>');">
-										<a class="featured__post-link" href="<?php the_permalink(); ?>"></a>
-										<div class="featured__content">
-											<?php the_title( '<h2 class="featured__title"><a class="featured__title-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-											<div class="post__meta">
-												<?php astroride_posted_on(); ?>
-												<?php astroride_post_category(); ?>
-											</div>
-										</div>
-									</article>
-
-							<?php endif; ?>
-
-						<?php endwhile; ?>
-
-							</div><!-- .featured__small -->
-
-					</div>
-				</div>
-			</div>
-
-		<?php endif; wp_reset_postdata(); ?>
-
-		<?php
-
-	}
-endif;
-
 if ( ! function_exists( 'astroride_post_author_box' ) ) :
 	/**
 	 * Author post informations.
@@ -590,30 +460,11 @@ if ( ! function_exists( 'astroride_footer_text' ) ) :
 	function astroride_footer_text() {
 
 		// Get the customizer data
-		$default = 'Site by <a href="https://www.happythemes.com">HappyThemes</a>';
+		$default = 'Site by <a href="https://idenovasi.com/">HappyThemes</a>';
 		$footer_text = get_theme_mod( 'copyrights_text', $default );
 
 		// Display the data
 		echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';
 
-	}
-endif;
-
-if ( ! function_exists( 'astroride_back_to_top' ) ) :
-	/**
-	 * Back to top button.
-	 */
-	function astroride_back_to_top() {
-
-		// Get the customizer data.
-		if ( true == get_theme_mod( 'backtotop', true )  ) : ?>
-
-			<a href="#" class="back-to-top" title="<?php esc_html_e( 'Back to top', 'astroride' ); ?>">
-				<?php echo astroride_get_icon_svg( 'expand_less' ); ?>
-			</a>
-
-		<?php endif; ?>
-
-	<?php
 	}
 endif;
