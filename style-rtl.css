@@ -477,8 +477,8 @@ dfn, cite, em, i {
 
 blockquote {
   margin: 0 1.5em 0;
-  border-left: 2px solid #c3a576;
-  padding: 0 0 0 1em;
+  border-right: 2px solid #c3a576;
+  padding: 0 1em 0 0;
   font-style: italic;
 }
 
@@ -554,8 +554,8 @@ hr {
 }
 
 ul, ol {
-  margin: 0 0 1.5em 1.5em;
-  padding-left: 0;
+  margin: 0 1.5em 1.5em 0;
+  padding-right: 0;
 }
 
 ul {
@@ -569,7 +569,7 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
 
 dt {
@@ -741,7 +741,7 @@ a:hover, a:active {
 }
 
 .header__navigation ul ul {
-  text-align: left;
+  text-align: right;
   padding: 0.625em 0;
   transition: 300ms ease-in-out;
 }
@@ -752,7 +752,7 @@ a:hover, a:active {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 100%;
-    left: -999em;
+    right: -999em;
     z-index: 99999;
     visibility: hidden;
     opacity: 0;
@@ -761,14 +761,14 @@ a:hover, a:active {
 
 @media (min-width: 48em) {
   .header__navigation ul ul ul {
-    left: 100%;
+    right: 100%;
     top: 0;
   }
 }
 
 .header__navigation ul ul li:hover > ul,
 .header__navigation ul ul li.focus > ul {
-  left: 100%;
+  right: 100%;
 }
 
 @media (min-width: 48em) {
@@ -790,7 +790,7 @@ a:hover, a:active {
 
 .header__navigation ul li:hover > ul,
 .header__navigation ul li.focus > ul {
-  left: auto;
+  right: auto;
   visibility: visible;
   opacity: 1;
   display: block;
@@ -798,21 +798,21 @@ a:hover, a:active {
 
 .header__navigation ul li:hover > ul ul,
 .header__navigation ul li.focus > ul ul {
-  left: 100%;
+  right: 100%;
 }
 
 @media (max-width: 480px) {
   .header__navigation ul li:hover > ul ul,
   .header__navigation ul li.focus > ul ul {
-    left: auto;
+    right: auto;
   }
 }
 
 .header__navigation li {
   position: relative;
   display: block;
-  padding-left: 0.875em;
   padding-right: 0.875em;
+  padding-left: 0.875em;
 }
 
 @media (min-width: 48em) {
@@ -837,7 +837,7 @@ a:hover, a:active {
   display: inline-block;
   width: 16px;
   height: 16px;
-  margin-left: 0.1875em;
+  margin-right: 0.1875em;
 }
 
 .header__navigation a {
@@ -873,7 +873,7 @@ a:hover, a:active {
 @media (min-width: 48em) {
   .menu-toggle {
     margin: auto;
-    padding-left: 1.5em;
+    padding-right: 1.5em;
   }
 }
 
@@ -904,39 +904,39 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .header__social {
   position: absolute;
-  left: auto;
-  right: 3.75em;
+  right: auto;
+  left: 3.75em;
   line-height: 0;
 }
 
 @media (min-width: 48em) {
   .header__social {
-    left: 1.5em;
-    right: auto;
+    right: 1.5em;
+    left: auto;
   }
 }
 
 @media (min-width: 64em) {
   .header__social {
-    left: 2.5em;
+    right: 2.5em;
   }
 }
 
 .header__social::after {
   content: "";
-  border-right: 0.0625em solid #5a595c;
+  border-left: 0.0625em solid #5a595c;
   height: 15px;
   width: 1px;
   display: inline-block;
   position: absolute;
   top: 0.3125em;
-  right: -0.25em;
+  left: -0.25em;
 }
 
 .header__social li {
   display: inline-block;
   position: relative;
-  margin-right: 0.375em;
+  margin-left: 0.375em;
 }
 
 .header__social a {
@@ -956,14 +956,14 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .header__search {
   position: absolute;
-  right: 1.5em;
+  left: 1.5em;
   line-height: 0;
   padding: 1.11em 0;
 }
 
 @media (min-width: 64em) {
   .header__search {
-    right: 2.5em;
+    left: 2.5em;
   }
 }
 
@@ -984,9 +984,9 @@ a:hover, a:active {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 100%;
-  right: -24px;
+  left: -24px;
   z-index: 99999;
-  text-align: left;
+  text-align: right;
   background-color: #fff;
   padding: 0.625em;
   visibility: hidden;
@@ -998,7 +998,7 @@ a:hover, a:active {
 @media (min-width: 48em) {
   .header__search-form-wrapper {
     min-width: 300px;
-    right: 0;
+    left: 0;
   }
 }
 
@@ -1042,7 +1042,7 @@ a:hover, a:active {
   font-size: 0.875em;
   font-weight: bold;
   height: auto;
-  left: 5px;
+  right: 5px;
   line-height: normal;
   padding: 15px 23px 14px;
   text-decoration: none;
@@ -1062,14 +1062,14 @@ a:hover, a:active {
 --------------------------------------------------------------*/
 .alignleft {
   display: inline;
-  float: left;
-  margin-right: 1.5em;
+  float: right;
+  margin-left: 1.5em;
 }
 
 .alignright {
   display: inline;
-  float: right;
-  margin-left: 1.5em;
+  float: left;
+  margin-right: 1.5em;
 }
 
 .aligncenter {
@@ -1124,8 +1124,8 @@ a:hover, a:active {
   .content__sidebar {
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
     margin-top: 0;
   }
 }
@@ -1135,21 +1135,21 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
 @media (min-width: 64em) {
   .content__sidebar-wrapper {
-    padding-left: 3.75em;
+    padding-right: 3.75em;
   }
 }
 
 @media (min-width: 64em) {
   .layout-left-sidebar .content__sidebar-wrapper {
-    padding-right: 3.75em;
-    padding-left: 0;
+    padding-left: 3.75em;
+    padding-right: 0;
   }
 }
 
@@ -1166,8 +1166,8 @@ a:hover, a:active {
   .widget {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1178,7 +1178,7 @@ a:hover, a:active {
 
 .widget ul li {
   padding: 0.625em 0;
-  background-image: linear-gradient(to right, #cecece 33%, rgba(255, 255, 255, 0) 0);
+  background-image: linear-gradient(to left, #cecece 33%, rgba(255, 255, 255, 0) 0);
   background-position: top;
   background-size: 4px 1px;
   background-repeat: repeat-x;
@@ -1216,7 +1216,7 @@ a:hover, a:active {
 
 .widget_tag_cloud a {
   display: inline-block;
-  margin-right: 0.3125em;
+  margin-left: 0.3125em;
   margin-bottom: 0.3125em;
   padding: 0.25em 0.875em 0.125em;
   text-transform: uppercase;
@@ -1230,11 +1230,11 @@ a:hover, a:active {
 }
 
 .widget_pages .children {
-  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .widget_nav_menu .sub-menu {
-  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .widget_nav_menu .sub-menu li:last-child {
@@ -1242,7 +1242,7 @@ a:hover, a:active {
 }
 
 .widget_categories {
-  text-align: right;
+  text-align: left;
 }
 
 .widget_categories li {
@@ -1250,7 +1250,7 @@ a:hover, a:active {
 }
 
 .widget_categories a {
-  float: left;
+  float: right;
   display: inline-block;
 }
 
@@ -1260,16 +1260,16 @@ a:hover, a:active {
 .header__branding-container, .content__container, .featured__container {
   max-width: 75em;
   width: 100%;
-  margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5em;
+  margin-left: auto;
   padding-right: 1.5em;
+  padding-left: 1.5em;
 }
 
 @media (min-width: 90em) {
   .header__branding-container, .content__container, .featured__container {
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -1286,8 +1286,8 @@ a:hover, a:active {
 
 .aligncenter, .wp-caption img[class*="wp-image-"] {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 /*--------------------------------------------------------------
@@ -1375,8 +1375,8 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -1384,8 +1384,8 @@ a:hover, a:active {
   .content__main {
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1393,8 +1393,8 @@ a:hover, a:active {
   .layout-full-width .content__main {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1436,10 +1436,10 @@ a:hover, a:active {
   .blog .content__main-grid .post__first.post {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 20px;
     padding-right: 20px;
-    padding-left: 0;
+    padding-left: 20px;
     padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -1448,9 +1448,9 @@ a:hover, a:active {
   .blog .content__main-grid .post {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 20px;
     padding-right: 20px;
-    padding-left: 0;
+    padding-left: 20px;
+    padding-right: 0;
   }
 }
 
@@ -1459,8 +1459,8 @@ a:hover, a:active {
   .search .content__main-grid .post {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1469,8 +1469,8 @@ a:hover, a:active {
   .search .content__main-grid .post {
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1484,8 +1484,8 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -1497,8 +1497,8 @@ a:hover, a:active {
   .content__main-list .post__thumbnail-wrapper {
     flex-basis: 41.6666666667%;
     max-width: 41.6666666667%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
     margin: 0;
   }
 }
@@ -1507,8 +1507,8 @@ a:hover, a:active {
   .content__main-list .post__excerpt-wrapper {
     flex-basis: 58.3333333333%;
     max-width: 58.3333333333%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1524,7 +1524,7 @@ a:hover, a:active {
 
 .post__date {
   position: relative;
-  padding-right: 1.875em;
+  padding-left: 1.875em;
 }
 
 .post__date::after {
@@ -1534,11 +1534,11 @@ a:hover, a:active {
   position: absolute;
   top: 50%;
   border-top: 0.0625em solid #cecece;
-  right: 0;
+  left: 0;
 }
 
 .post__categories {
-  padding-left: 0.625em;
+  padding-right: 0.625em;
 }
 
 .post__readmore-link {
@@ -1551,7 +1551,7 @@ a:hover, a:active {
 }
 
 .post__readmore .svg-icon {
-  padding-left: 0.3125em;
+  padding-right: 0.3125em;
 }
 
 .post__header {
@@ -1596,8 +1596,8 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -1605,8 +1605,8 @@ a:hover, a:active {
   .post__content-main {
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1614,8 +1614,8 @@ a:hover, a:active {
   .layout-full-width .post__content-main {
     flex-basis: 100%;
     max-width: 100%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1656,7 +1656,7 @@ a:hover, a:active {
 
 .post__author-avatar {
   display: inline-block;
-  padding-right: 0.3125em;
+  padding-left: 0.3125em;
 }
 
 .post__author-avatar img {
@@ -1672,11 +1672,11 @@ a:hover, a:active {
 }
 
 .post__share {
-  margin-left: auto;
+  margin-right: auto;
 }
 
 .post__share-item {
-  padding-right: 0.125em;
+  padding-left: 0.125em;
 }
 
 .post__share-item .svg-icon {
@@ -1738,8 +1738,8 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -1751,8 +1751,8 @@ a:hover, a:active {
   .featured__big {
     flex-basis: 66.6666666667%;
     max-width: 66.6666666667%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
     margin-bottom: 0;
   }
 }
@@ -1771,8 +1771,8 @@ a:hover, a:active {
   .featured__small {
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -1799,7 +1799,7 @@ a:hover, a:active {
 .featured__post-link {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -1877,7 +1877,7 @@ a:hover, a:active {
 
 @media (min-width: 48em) {
   .post__comments .children {
-    padding-left: 1.875em;
+    padding-right: 1.875em;
   }
 }
 
@@ -1893,7 +1893,7 @@ a:hover, a:active {
 
 .post__comments .comment-author .avatar {
   border-radius: 50%;
-  margin-right: 0.625em;
+  margin-left: 0.625em;
 }
 
 .post__comments .comment-author .fn {
@@ -1909,7 +1909,7 @@ a:hover, a:active {
   position: absolute;
   border-top: 0.0625em solid #cecece;
   bottom: 0;
-  left: 0;
+  right: 0;
 }
 
 .post__comments .comment-author a {
@@ -1922,7 +1922,7 @@ a:hover, a:active {
 
 @media (min-width: 23.438em) {
   .post__comments .comment-metadata {
-    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -1933,7 +1933,7 @@ a:hover, a:active {
 
 .post__comments .comment-metadata .edit-link {
   position: relative;
-  padding-left: 1.25em;
+  padding-right: 1.25em;
 }
 
 .post__comments .comment-metadata .edit-link::before {
@@ -1943,7 +1943,7 @@ a:hover, a:active {
   position: absolute;
   top: 50%;
   border-top: 0.0625em solid #cecece;
-  left: 0;
+  right: 0;
 }
 
 .post__comments .comment-content {
@@ -1984,7 +1984,7 @@ a:hover, a:active {
 
 .comment-form-cookies-consent label {
   display: inline;
-  margin-left: 0.3125em;
+  margin-right: 0.3125em;
   letter-spacing: 0;
   text-transform: capitalize;
 }
@@ -2001,8 +2001,8 @@ a:hover, a:active {
 .archive .content__main-grid .posts-navigation,
 .search .content__main-grid .posts-navigation {
   width: 100%;
-  padding-left: 1.25em;
   padding-right: 1.25em;
+  padding-left: 1.25em;
 }
 
 .posts-navigation .nav-previous {
@@ -2013,7 +2013,7 @@ a:hover, a:active {
   width: 50%;
   display: flex;
   justify-content: flex-end;
-  margin-left: auto;
+  margin-right: auto;
 }
 
 /**
@@ -2027,28 +2027,28 @@ a:hover, a:active {
   flex-direction: row;
   display: flex;
   flex-wrap: wrap;
-  margin-right: -20px;
   margin-left: -20px;
+  margin-right: -20px;
   width: 100%;
 }
 
 .post-pagination__prev, .post-pagination__next {
   flex-basis: 50%;
   max-width: 50%;
-  padding-left: 20px;
   padding-right: 20px;
+  padding-left: 20px;
 }
 
 .post-pagination__next {
-  margin-left: auto;
-  text-align: right;
+  margin-right: auto;
+  text-align: left;
   justify-content: flex-end;
 }
 
 .post-pagination__next .post-pagination__link {
   order: 2;
-  padding-right: 0;
-  padding-left: 1.25em;
+  padding-left: 0;
+  padding-right: 1.25em;
 }
 
 .post-pagination__next .post-pagination__detail {
@@ -2058,7 +2058,7 @@ a:hover, a:active {
 .post-pagination__link {
   display: block;
   width: 18%;
-  padding-right: 1.25em;
+  padding-left: 1.25em;
 }
 
 .post-pagination__img {
@@ -2149,15 +2149,15 @@ a:hover, a:active {
   .post__related {
     flex-basis: 33.3333333333%;
     max-width: 33.3333333333%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
     margin-top: 0;
   }
 }
 
 @media (min-width: 64em) {
   .post__related-wrapper {
-    padding-left: 3.75em;
+    padding-right: 3.75em;
   }
 }
 
@@ -2166,8 +2166,8 @@ a:hover, a:active {
     flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -20px;
     margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -2179,8 +2179,8 @@ a:hover, a:active {
   .post__related-item {
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 20px;
     padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -2213,7 +2213,7 @@ a:hover, a:active {
 .back-to-top {
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   z-index: 999;
   width: 1.25em;
   height: 1.25em;
@@ -2269,9 +2269,9 @@ a:hover, a:active {
 @media (min-width: 48em) {
   .footer__copyright {
     position: absolute;
-    left: 2.5em;
+    right: 2.5em;
     width: 30%;
-    text-align: left;
+    text-align: right;
     margin-bottom: 0;
   }
 }
@@ -2288,14 +2288,14 @@ a:hover, a:active {
 
 .footer__social .header__social {
   position: relative;
-  left: auto;
-  right: 0;
+  right: auto;
+  left: 0;
 }
 
 @media (min-width: 48em) {
   .footer__designer {
     position: absolute;
-    right: 2.5em;
+    left: 2.5em;
   }
 }
 
@@ -2403,5 +2403,3 @@ object {
 .gallery-caption {
   display: block;
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -11,24 +11,48 @@
 
 ?>
 
-	</div><!-- #content -->
+	</div><!-- .content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'astroride' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'astroride' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'astroride' ), 'astroride', '<a href="https://automattic.com/">Automattic</a>' );
-				?>
-		</div><!-- .site-info -->
+	<?php
+	// Instagram shortcode.
+	$shortcode = get_theme_mod( 'instagram' );
+	if ( $shortcode ) :
+	?>
+		<div class="instagram">
+			<?php echo do_shortcode( esc_html( $shortcode ) ); ?>
+		</div>
+	<?php endif; ?>
+
+	<footer class="footer">
+		<div class="footer__container">
+
+			<div class="footer__wrapper">
+
+				<div class="footer__copyright">
+					<?php
+						printf( esc_html__( '&copy; Copyright %1$s %2$s. All Rights Reserved', 'astroride' ),
+							date( 'Y' ),
+							'<a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>'
+						);
+					?>
+				</div>
+
+				<div class="footer__social">
+					<?php get_template_part( 'template-parts/menu/menu', 'social' ); ?>
+				</div>
+
+				<div class="footer__designer">
+					<?php astroride_footer_text(); ?>
+				</div>
+
+			</div>
+
+		</div>
 	</footer><!-- #colophon -->
-</div><!-- #page -->
+
+</div><!-- .site -->
+
+<?php astroride_back_to_top(); ?>
 
 <?php wp_footer(); ?>
 

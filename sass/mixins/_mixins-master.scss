@@ -1,12 +1,11 @@
-/*--------------------------------------------------------------
-1. Functions
-2. Mixins
-3. Placeholders
---------------------------------------------------------------*/
+// --------------------------------------------------------------
+// 1. Functions
+// 2. Mixins
+// --------------------------------------------------------------
 
-/*--------------------------------------------------------------
-1. Functions
---------------------------------------------------------------*/
+// --------------------------------------------------------------
+// 1. Functions
+// --------------------------------------------------------------
 
 // PX to EM
 $browser-context: 16;
@@ -22,9 +21,9 @@ $browser-context: 16;
 	@return $pixels / $context * 1em;
 }
 
-/*--------------------------------------------------------------
-2. Mixins
---------------------------------------------------------------*/
+// --------------------------------------------------------------
+// 2. Mixins
+// --------------------------------------------------------------
 
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
@@ -68,48 +67,4 @@ $browser-context: 16;
 		@content;
 	}
 
-}
-
-/*--------------------------------------------------------------
-3. Placeholders
---------------------------------------------------------------*/
-
-// Container
-%container {
-	max-width: em(1200px);
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-// Flexbox
-%flex {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-// Reset list
-%reset-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-// Center block
-%center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-// Clearfix
-%clearfix {
-	content: "";
-	display: table;
-	table-layout: fixed;
-}
-
-// Clear after (not all clearfix need this also)
-%clearfix-after {
-	clear: both;
 }

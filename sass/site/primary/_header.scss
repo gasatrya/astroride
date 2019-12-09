@@ -3,11 +3,6 @@
 	&__topbar {
 		background-color: $color__background-header;
 
-		&-container {
-			@extend %container;
-			position: relative;
-		}
-
 		&-wrapper {
 			@extend %flex;
 			justify-content: center;
@@ -18,6 +13,7 @@
 	}
 
 	&__branding {
+		padding: em(70px) 0;
 
 		&-container {
 			@extend %container;
@@ -28,7 +24,30 @@
 			text-align: center;
 		}
 
+		.single &,
+		.page &,
+		.archive &,
+		.search &,
+		.error404 & {
+			border-bottom: em(1px) solid $color__border-input;
+			margin-bottom: em(80px);
+		}
+
 	}
 
+	&__title {
+		margin-bottom: 0;
+		text-transform: uppercase;
+		letter-spacing: em(1px);
+	}
+
+	&__tagline {
+		font-size: em(20px);
+		margin-bottom: 0;
+	}
+
+	&__logo-link {
+		display: inline-block;
+	}
 
 }

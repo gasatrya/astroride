@@ -1,8 +1,9 @@
-module.exports = function ( grunt ) {
+module.exports = function( grunt ) {
 
 	// Load all Grunt tasks
 	require( 'jit-grunt' )( grunt, {
-		makepot: 'grunt-wp-i18n'
+		makepot: 'grunt-wp-i18n',
+		postcss: '@lodder/grunt-postcss',
 	} );
 
 	const sass = require( 'node-sass' );
@@ -10,38 +11,6 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 
 		pkg: grunt.file.readJSON( 'package.json' ),
-
-		// Concat and Minify our js.
-		// uglify: {
-		// 	dev: {
-		// 		files: {
-		// 			'assets/js/plugins.min.js': [
-		// 				'assets/js/devs/**/*.js'
-		// 			]
-		// 		}
-		// 	},
-		// 	prod: {
-		// 		files: {
-		// 			'assets/js/<%= pkg.name %>.min.js': [ 'assets/js/plugins.min.js', 'assets/js/main.js' ]
-		// 		}
-		// 	}
-		// },
-
-		// Minify CSS
-		// cssmin: {
-		// 	options: {
-		// 		shorthandCompacting: false,
-		// 		roundingPrecision: -1,
-		// 		keepSpecialComments: 0
-		// 	},
-		// 	prod: {
-		// 		files: {
-		// 			'assets/css/plugins.min.css': [
-		// 				'assets/css/devs/**/*.css'
-		// 			]
-		// 		}
-		// 	}
-		// },
 
 		// Compile our sass.
 		sass: {
@@ -53,66 +22,21 @@ module.exports = function ( grunt ) {
 				},
 				files: {
 					'style.css': 'sass/style.scss',
-				}
-			},
-			prod: {
-				options: {
-					implementation: sass,
-					outputStyle: 'compressed',
-					sourceMap: false
-				},
-				files: {
-					'style.min.css': 'sass/style.scss',
+					'style-editor.css': 'sass/style-editor.scss',
 				}
 			}
 		},
 
-		// Autoprefixer.
-		autoprefixer: {
-			dev: {
-				options: {
-					browsers: [
-						'last 8 versions', 'ie 8', 'ie 9'
-					],
-					map: true
-				},
-				files: {
-					'style.css': 'style.css'
-				}
-			},
-			prod: {
-				options: {
-					browsers: [
-						'last 8 versions', 'ie 8', 'ie 9'
-					],
-					map: false
-				},
-				files: {
-					'style.min.css': 'style.min.css'
-				}
-			}
-		},
-
-		// Sorting our CSS properties.
-		csscomb: {
+		// PostCSS.
+		postcss: {
 			options: {
-				config: '.csscomb.json'
+				map: true,
+				processors: [
+					require( 'autoprefixer' )( )
+				]
 			},
-			main: {
-				src: [ 'style.css' ]
-			}
-		},
-
-		// Newer files checker
-		newer: {
-			options: {
-				override: function ( detail, include ) {
-					if ( detail.task === 'php' || detail.task === 'sass' ) {
-						include( true );
-					} else {
-						include( false );
-					}
-				}
+			dist: {
+				src: 'style.css'
 			}
 		},
 
@@ -125,8 +49,7 @@ module.exports = function ( grunt ) {
 			sass: {
 				files: [ 'sass/**/*.scss' ],
 				tasks: [
-					'sass:dev',
-					'autoprefixer:dev',
+					'sass:dev'
 				]
 			},
 			js: {
@@ -148,6 +71,16 @@ module.exports = function ( grunt ) {
 					src: [ '**/*.{png,jpg,gif}' ],
 					dest: 'assets/img/'
 				} ]
+			}
+		},
+
+		// RTL CSS
+		rtlcss: {
+			prod: {
+				expand: true,
+				files: {
+					'style-rtl.css': 'style.css'
+				}
 			}
 		},
 
@@ -199,11 +132,11 @@ module.exports = function ( grunt ) {
 		// Clean up build directory
 		clean: {
 			build: [
-				'build/<%= pkg.name %>',
-				'build/<%= pkg.name %>.zip'
+				'build/'
 			]
 		},
 
+		// Generate .pot file
 		makepot: {
 			target: {
 				options: {
@@ -219,7 +152,7 @@ module.exports = function ( grunt ) {
 					potFilename: '<%= pkg.name %>.pot', // Name of the POT file.
 					type: 'wp-theme', // Type of project (wp-plugin or wp-theme).
 					updateTimestamp: true, // Whether the POT-Creation-Date should be updated without other changes.
-					processPot: function ( pot, options ) {
+					processPot: function( pot, options ) {
 						pot.headers[ 'report-msgid-bugs-to' ] = 'satrya@idenovasi.com';
 						pot.headers[ 'plural-forms' ] = 'nplurals=2; plural=n != 1;';
 						pot.headers[ 'last-translator' ] = 'Satrya (satrya@idenovasi.com)';
@@ -241,17 +174,19 @@ module.exports = function ( grunt ) {
 
 	// Setup task
 	grunt.registerTask( 'default', [
-		// 'uglify:dev',
-		// 'cssmin:prod',
+		'watch'
+	] );
+
+	// Compress image task
+	grunt.registerTask( 'image', [
+		'imagemin',
 	] );
 
 	// Production task
 	grunt.registerTask( 'build', [
-		// 'newer:uglify:prod',
-		'newer:imagemin',
-		'sass:prod',
-		'autoprefixer:prod',
-		'csscomb:main',
+		'sass',
+		'postcss',
+		'rtlcss',
 		'makepot',
 		'copy'
 	] );

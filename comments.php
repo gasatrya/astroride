@@ -20,13 +20,13 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div class="post__comments">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h3 class="post__comments-title">
 			<?php
 			$astroride_comment_count = get_comments_number();
 			if ( '1' === $astroride_comment_count ) {
@@ -40,19 +40,20 @@ if ( post_password_required() ) {
 					/* translators: 1: comment count number, 2: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $astroride_comment_count, 'comments title', 'astroride' ) ),
 					number_format_i18n( $astroride_comment_count ),
-					'<span>' . get_the_title() . '</span>'
+					'<span>' . esc_attr( get_the_title() ) . '</span>'
 				);
 			}
 			?>
-		</h2><!-- .comments-title -->
+		</h3><!-- .post__comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol class="post__comments-items">
 			<?php
 			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
+				'style'       => 'ol',
+				'short_ping'  => true,
+				'avatar_size' => 60,
 			) );
 			?>
 		</ol><!-- .comment-list -->
@@ -63,7 +64,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'astroride' ); ?></p>
+			<p class="post__no-comments"><?php esc_html_e( 'Comments are closed.', 'astroride' ); ?></p>
 			<?php
 		endif;
 

@@ -1,6 +1,160 @@
-.comment-content a {
-	word-wrap: break-word;
+.post__comments {
+
+	&-title {
+		@extend %h4;
+		margin-top: 0;
+		margin-bottom: em(30px);
+	}
+
+	&-items {
+		@extend %reset-list;
+		margin-bottom: em(60px);
+	}
+
+	.bypostauthor {
+		display: block;
+	}
+
+	.comment {
+		margin-bottom: em(40px);
+	}
+
+	.children {
+		margin: em(40px) 0;
+		list-style: none;
+
+		@include media($tablet) {
+			padding-left: em(30px);
+		}
+
+	}
+
+	.comment-meta {
+		margin-bottom: em(10px);
+		@extend %flex;
+		align-items: center;
+	}
+
+	.comment-author {
+		font-size: em(14px);
+		@extend %flex;
+		align-items: center;
+
+		.avatar {
+			border-radius: 50%;
+			margin-right: em(10px);
+		}
+
+		.fn {
+			font-weight: 400;
+			position: relative;
+			text-transform: uppercase;
+
+			&::after {
+				content: "";
+				width: em(15px);
+				height: em(1px);
+				position: absolute;
+				border-top: em(1px) solid $color__border-input;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		.says {
+			@extend .screen-reader-text;
+		}
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: $color__link-hover;
+			}
+		}
+	}
+
+	.comment-metadata {
+		@include media($mobile__small) {
+			margin-left: auto;
+		}
+
+		a {
+			@extend %post__small-text;
+			font-size: em(12px);
+			color: $color__text-meta;
+		}
+
+		.edit-link {
+			position: relative;
+			padding-left: em(20px);
+
+			&::before {
+				content: "";
+				width: em(15px);
+				height: em(1px);
+				position: absolute;
+				top: 50%;
+				border-top: em(1px) solid $color__border-input;
+				left: 0;
+			}
+		}
+	}
+
+	.comment-content {
+		line-height: 1.45;
+
+		a {
+			word-wrap: break-word;
+		}
+	}
+
+	.reply {
+		a {
+			@extend %post__small-text;
+			font-size: em(12px);
+		}
+	}
+
 }
-.bypostauthor {
-	display: block;
+
+.comment-reply-title {
+	@extend %widget__title;
+	margin-bottom: em(5px);
+}
+
+.comment-notes {
+	text-align: center;
+	margin-bottom: em(40px);
+	color: $color__text-meta;
+}
+
+.comment-form {
+
+	label {
+		@extend %post__small-text;
+		display: block;
+		margin-bottom: em(6px);
+
+		&:hover {
+			color: inherit;
+		}
+	}
+
+	input,
+	textarea {
+		font-size: em(14px);
+	}
+
+}
+
+.comment-form-cookies-consent {
+
+	label {
+		display: inline;
+		margin-left: em(5px);
+		letter-spacing: 0;
+		text-transform: capitalize;
+	}
+
 }

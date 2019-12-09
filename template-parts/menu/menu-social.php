@@ -1,4 +1,8 @@
-<?php if ( has_nav_menu( 'social' ) ) : ?>
+<?php
+	$social = get_theme_mod( 'social_icons', true );
+?>
+
+<?php if ( $social == true && has_nav_menu( 'social' ) ) : ?>
 	<nav class="header__social" aria-label="<?php esc_attr_e( 'Social Links Menu', 'astroride' ); ?>">
 		<?php
 		wp_nav_menu(

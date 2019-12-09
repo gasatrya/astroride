@@ -1,8 +1,12 @@
 .header__search {
 	position: absolute;
-	right: 0;
+	right: em(24px);
 	line-height: 0;
 	padding: 1.11em 0;
+
+	@include media($tablet__wide) {
+		right: em(40px);
+	}
 
 	&:hover {
 		 .header__search-form-wrapper {
@@ -23,7 +27,7 @@
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 		position: absolute;
 		top: 100%;
-		right: 0;
+		right: -24px;
 		z-index: 99999;
 		text-align: left;
 		background-color: $color__background-submenu;
@@ -31,7 +35,12 @@
 		visibility: hidden;
 		opacity: 0;
 		transition: 300ms ease-in-out;
-		min-width: 300px;
+		min-width: 100vw;
+
+		@include media($tablet) {
+			min-width: 300px;
+			right: 0;
+		}
 	}
 
 	&-form {

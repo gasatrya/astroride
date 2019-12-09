@@ -1,0 +1,47 @@
+.footer {
+	background-color: $color__background-footer;
+	color: $color__text-footer;
+	text-align: center;
+	padding: em(55px) 0 em(50px);
+
+	&__wrapper {
+		@extend %flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		@include media($tablet) {
+			flex-direction: row;
+		}
+	}
+
+	&__copyright {
+		margin-bottom: em(20px);
+		@include media($tablet) {
+			position: absolute;
+			left: em(40px);
+			width: 30%;
+			text-align: left;
+			margin-bottom: 0;
+		}
+	}
+
+	&__social {
+		margin-bottom: em(20px);
+		@include media($tablet) {
+			margin-bottom: 0;
+		}
+		.header__social {
+			position: relative;
+			left: auto;
+			right: 0;
+		}
+	}
+
+	&__designer {
+		@include media($tablet) {
+			position: absolute;
+			right: em(40px);
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.author-bio {
+	text-align: center;
+	border-bottom: em(1px) solid $color__border-input;
+	padding-bottom: em(40px);
+	padding-bottom: em(40px);
+	margin-bottom: em(60px);
+
+	.avatar {
+		border-radius: 50%;
+	}
+
+	&__name {
+		margin-top: 0;
+		margin-bottom: em(5px);
+	}
+
+	&__desc {
+		font-size: em(18px);
+	}
+
+	&__social-link {
+		padding: 0 .5em;
+		.svg-icon {
+			width: em(20px);
+		}
+
+		&.website {
+			&:hover {
+				opacity: .5;
+			}
+		}
+
+		&.twitter {
+			&:hover {
+				path {
+					fill: #1da1f2;
+				}
+			}
+		}
+
+		&.facebook {
+			&:hover {
+				path {
+					fill: #3b5998;
+				}
+			}
+		}
+
+		&.instagram {
+			&:hover {
+				path {
+					fill: #405de6;
+				}
+			}
+		}
+
+		&.pinterest {
+			&:hover {
+				path {
+					fill: #bd081c;
+				}
+			}
+		}
+
+		&.linkedin {
+			&:hover {
+				path {
+					fill: #0077b5;
+				}
+			}
+		}
+
+		&.dribbble {
+			&:hover {
+				path {
+					fill: #ea4c89;
+				}
+			}
+		}
+	}
+}

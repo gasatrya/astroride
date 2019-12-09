@@ -1,8 +1,163 @@
+// Placeholder
+%widget__title {
+	@extend %h5;
+	margin-top: 0;
+	text-align: center;
+	letter-spacing: em(1.5px);
+	text-transform: uppercase;
+}
+
+.content__sidebar {
+	margin-top: em(60px);
+	@include media($tablet__wide) {
+		@include grid-column(4);
+		margin-top: 0;
+	}
+
+	&-wrapper {
+		@media (max-width: $tablet) and (min-width: $mobile) {
+			@include grid-row;
+		}
+
+		@include media($tablet__wide) {
+			padding-left: em(60px);
+		}
+
+		.layout-left-sidebar & {
+			@include media($tablet__wide) {
+				padding-right: em(60px);
+				padding-left: 0;
+			}
+		}
+	}
+
+	.layout-left-sidebar & {
+		order: 1;
+	}
+}
+
 .widget {
-	margin: 0 0 1.5em;
+	margin-bottom: em(60px);
+	@media (max-width: $tablet) and (min-width: $mobile) {
+		@include grid-column(6);
+	}
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+		width: 100%;
+	}
+
+	ul {
+		@extend %reset-list;
+
+		li {
+			padding: em(10px) 0;
+			background-image: linear-gradient(to right, $color__border-input 33%,rgba(255,255,255,0) 0);
+			background-position: top;
+			background-size: 4px 1px;
+			background-repeat: repeat-x;
+
+			&:first-child {
+				background: none;
+			}
+		}
+
+		a {
+			color: inherit;
+			display: inline-block;
+
+			&:hover {
+				color: $color__link-hover;
+			}
+		}
+	}
+
+	&__title {
+		@extend %widget__title;
+	}
+}
+
+// Widget recent entries
+.widget_recent_entries {
+
+	a {
+		display: block;
+	}
+
+	.post-date {
+		display: block;
+		font-size: em(12px);
+		text-transform: uppercase;
+		color: $color__link-meta;
+		padding-top: em(2px);
+	}
+
+}
+
+// Widget recent comments
+.widget_recent_comments {
+
+	ul li a {
+		display: inline;
+		color: $color__link-meta;
+	}
+
+}
+
+// Widget tag Cloud
+.widget_tag_cloud {
+
+	a {
+		display: inline-block;
+		margin-right: em(5px);
+		margin-bottom: em(5px);
+		padding: em(4px) em(14px) em(2px);
+		text-transform: uppercase;
+		background-color: $color__background-tag-cloud;
+		color: $color__text-tag-cloud;
+		border-radius: em(3px);
+
+		&:hover {
+			background-color: $color__link;
+		}
+
+	}
+
+}
+
+// Widget pages
+.widget_pages {
+
+	.children {
+		padding-left: 1em;
+	}
+
+}
+
+// Widget nav menu
+.widget_nav_menu {
+
+	.sub-menu {
+		padding-left: 1em;
+
+		li:last-child {
+			padding-bottom: 0;
+		}
+	}
+
+}
+
+// Widget categories
+.widget_categories {
+	text-align: right;
+
+	li {
+		clear: both;
+	}
+
+	a {
+		float: left;
+		display: inline-block;
 	}
 }

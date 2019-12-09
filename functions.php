@@ -49,7 +49,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		// set_post_thumbnail_size( 1568, 9999 );
+		add_image_size( 'astroride-first-post', 1152, 680, true );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -77,10 +77,10 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 190,
+				'height'      => 320,
 				'width'       => 190,
-				'flex-width'  => false,
-				'flex-height' => false,
+				'flex-width'  => true,
+				'flex-height' => true,
 			)
 		);
 
@@ -88,7 +88,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		add_theme_support( 'wp-block-styles' );
 
 		// Add support for full and wide align images.
-		add_theme_support( 'align-wide' );
+		// add_theme_support( 'align-wide' );
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
@@ -104,54 +104,6 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Add support for custom color scheme.
-		// add_theme_support( 'editor-color-palette', array(
-		// 	array(
-		// 		'name'  => esc_html__( 'Blue', 'astroride' ),
-		// 		'slug'  => 'blue',
-		// 		'color' => '#417cd6',
-		// 	),
-		// 	array(
-		// 		'name'  => esc_html__( 'Dark Gray', 'astroride' ),
-		// 		'slug'  => 'dark-gray',
-		// 		'color' => '#383838',
-		// 	),
-		// 	array(
-		// 		'name'  => esc_html__( 'Light Gray', 'astroride' ),
-		// 		'slug'  => 'light-gray',
-		// 		'color' => '#f9f9f9',
-		// 	),
-		// ) );
-
-		// Add support for custom font sizes.
-		add_theme_support( 'editor-font-sizes', array(
-			array(
-				'name' => esc_html__( 'Small', 'astroride' ),
-				'size' => 14,
-				'slug' => 'small'
-			),
-			array(
-				'name' => esc_html__( 'Normal', 'astroride' ),
-				'size' => 16,
-				'slug' => 'normal'
-			),
-			array(
-				'name' => esc_html__( 'Medium', 'astroride' ),
-				'size' => 24,
-				'slug' => 'medium'
-			),
-			array(
-				'name' => esc_html__( 'Large', 'astroride' ),
-				'size' => 36,
-				'slug' => 'large'
-			),
-			array(
-				'name' => esc_html__( 'Huge', 'astroride' ),
-				'size' => 48,
-				'slug' => 'huge'
-			)
-		) );
 
 		// Add support for responsive embeds.
 		add_theme_support( 'responsive-embeds' );
@@ -171,7 +123,7 @@ function astroride_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'astroride_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'astroride_content_width', 1152 );
 }
 add_action( 'after_setup_theme', 'astroride_content_width', 0 );
 
@@ -180,33 +132,36 @@ add_action( 'after_setup_theme', 'astroride_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function astroride_widgets_init() {
+function astroride_sidebar_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'astroride' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'astroride' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
+		'before_title'  => '<h2 class="widget__title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'astroride_widgets_init' );
+add_action( 'widgets_init', 'astroride_sidebar_init' );
 
 /**
  * Enqueue scripts and styles.
  */
 function astroride_scripts() {
 
-	wp_enqueue_style( 'astroride-fonts', astroride_fonts_url(), array(), null );
+	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'astroride-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'astroride-fonts', astroride_fonts_url(), array(), $theme_version );
 
-	wp_enqueue_script( 'astroride-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_style( 'astroride-style', get_stylesheet_uri(), array(), $theme_version );
+	wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'astroride-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'astroride-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0.0', true );
 
-	wp_enqueue_script( 'astroride-custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'astroride-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0.0', true );
+
+	wp_enqueue_script( 'astroride-custom-js', get_theme_file_uri( '/assets/js/custom.js' ), array( 'jquery' ), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -225,9 +180,9 @@ function astroride_fonts_url() {
 	 * supported by Amiri, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$libre_franklin = _x( 'on', 'Amiri font: on or off', 'astroride' );
+	$amiri = _x( 'on', 'Amiri font: on or off', 'astroride' );
 
-	if ( 'off' !== $libre_franklin ) {
+	if ( 'off' !== $amiri ) {
 		$font_families = array();
 
 		$font_families[] = 'Amiri:400,400i,700,700i';
@@ -246,7 +201,7 @@ function astroride_fonts_url() {
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -272,14 +227,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Load WooCommerce compatibility file.
+ * Theme customizer.
  */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
-}
+require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Kirki compatibility file.
+ * Demo importer
  */
-require get_template_directory() . '/inc/extensions/kirki/kirki.php';
-require get_template_directory() . '/inc/customizer.php';
+require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';

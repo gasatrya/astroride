@@ -1,3 +1,20 @@
+// --------------------------------------------------------------
+// Placeholder
+// --------------------------------------------------------------
+
+// Clearfix
+%clearfix {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+%clearfix-after {
+	clear: both;
+}
+// --------------------------------------------------------------
+
 .clear:before,
 .clear:after,
 .entry-content:before,

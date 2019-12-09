@@ -10,8 +10,15 @@
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
+
+// Return early if user uses 1 column layout.
+if ( in_array( get_theme_mod( 'theme_layout' ), array( 'full-width' ) ) ) {
+	return;
+}
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+<aside class="content__sidebar">
+	<div class="content__sidebar-wrapper">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div>
+</aside><!-- .content__sidebar -->

@@ -1,7 +1,28 @@
 .header__social {
 	position: absolute;
-	left: 0;
+	left: auto;
+	right: em(60px);
 	line-height: 0;
+
+	@include media($tablet) {
+		left: em(24px);
+		right: auto;
+	}
+
+	@include media($tablet__wide) {
+		left: em(40px);
+	}
+
+	&::after {
+		content: "";
+		border-right: em(1px) solid #5a595c;
+		height: 15px;
+		width: 1px;
+		display: inline-block;
+		position: absolute;
+		top: em(5px);
+		right: em(-4px);
+	}
 
 	ul {
 		@extend %reset-list;

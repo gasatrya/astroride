@@ -1,11 +1,11 @@
 // Thanks to
 // https://gist.github.com/coco-napky/ecc85c2115e0469602f86d49d19d1baa
 
-$gutter-width: 48px;
+$gutter-width: 40px;
 $half-gutter-width: $gutter-width / 2;
 $gutter-compensation: -1 * $half-gutter-width;
 
-@mixin grid-row ($reverse:false) {
+@mixin grid-row ($reverse: false) {
 	@include grid-row-direction($reverse);
 	display: flex;
 	flex-wrap: wrap;
@@ -13,7 +13,7 @@ $gutter-compensation: -1 * $half-gutter-width;
 	margin-left: $gutter-compensation;
 }
 
-@mixin grid-row-direction ($reverse:false) {
+@mixin grid-row-direction ($reverse: false) {
 	@if ($reverse) {
 		flex-direction: row-reverse;
 	} @else {
@@ -21,18 +21,23 @@ $gutter-compensation: -1 * $half-gutter-width;
 	}
 }
 
-@mixin grid-column ($columns-to-span:12, $total-columns-in-row:12) {
+@mixin grid-column ($columns-to-span: 12, $width-only: false, $total-columns-in-row: 12) {
+
+	$span-percentage: ($columns-to-span / $total-columns-in-row) * 100%;
+
 	@if ($columns-to-span == auto) {
 		flex-grow: 1;
 		flex-basis: 0;
 		max-width: 100%;
 
-	} @else {
-		$span-percentage: $columns-to-span / $total-columns-in-row;
+	} @else if ($width-only == true ) {
+		max-width: $span-percentage;
 
-		flex-basis: $span-percentage * 100%;
-		max-width: $span-percentage * 100%;
+	} @else {
+		flex-basis: $span-percentage;
+		max-width: $span-percentage;
 		padding-left: $half-gutter-width;
 		padding-right: $half-gutter-width;
 	}
+
 }

@@ -1,0 +1,189 @@
+/*!
+Astroride Editor Styles
+*/
+@import url("https://fonts.googleapis.com/css?family=Amiri:400,400i,700&display=swap");
+body, p, .editor-default-block-appender .editor-default-block-appender__content {
+  font-size: 20px;
+}
+
+/** === Editor Frame === */
+body .wp-block[data-align="full"] {
+  width: 100%;
+}
+
+@media (min-width: 30em) {
+  body .wp-block[data-align="full"] {
+    width: calc( 100% + 90px);
+    max-width: calc( 100% + 90px);
+  }
+}
+
+@media (min-width: 48em) {
+  body .editor-writing-flow {
+    max-width: 80%;
+    margin: 0 10%;
+  }
+  body .editor-post-title__block,
+  body .editor-default-block-appender,
+  body .editor-block-list__block {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  body .wp-block[data-align="wide"] {
+    width: 100%;
+  }
+  body .wp-block[data-align="full"] {
+    position: relative;
+    left: calc( -12.5% - 14px);
+    width: calc( 125% + 116px);
+    max-width: calc( 125% + 115px);
+  }
+  body .wp-block[data-align="right"] {
+    max-width: 125%;
+  }
+}
+
+/** === Content Width === */
+.wp-block {
+  width: calc(100vw - (2 * 1em));
+  max-width: 100%;
+}
+
+@media (min-width: 48em) {
+  .wp-block {
+    width: calc(8 * (100vw / 12));
+  }
+}
+
+@media (min-width: 80em) {
+  .wp-block {
+    width: calc(6 * (100vw / 12 ));
+  }
+}
+
+.wp-block .wp-block {
+  width: 100%;
+}
+
+/** === Base Typography === */
+body {
+  color: #5a595c;
+  font-family: "Amiri", serif;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* Headings, Lists & Links */
+h1 {
+  font-size: 2.488em;
+}
+
+h2 {
+  font-size: 2.074em;
+}
+
+h3 {
+  font-size: 1.728em;
+}
+
+h4 {
+  font-size: 1.44em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+small,
+.text-small {
+  font-size: 0.833em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  font-weight: 400;
+  color: #191919;
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  color: inherit;
+}
+
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover {
+  color: #b9893e;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+ul, ol {
+  margin: 0 0 1.5em 1.5em;
+  padding-left: 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+a {
+  color: #c3a576;
+  transition: all 250ms ease-in-out;
+  text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+  color: #b9893e;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+/** === Default Appender === */
+.editor-default-block-appender .editor-default-block-appender__content {
+  font-family: "Amiri", serif;
+}
+
+.wp-block-heading strong {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style-editor.css.map */

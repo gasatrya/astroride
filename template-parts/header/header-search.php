@@ -1,6 +1,11 @@
 <div class="header__search">
 
-	<a class="header__search-link" href="#"><?php echo astroride_get_icon_svg( 'search' ); ?></a>
+	<?php
+		$search = get_theme_mod( 'search_icon', true );
+		if ( true == $search ) :
+	?>
+		<a class="header__search-link" href="#"><?php echo astroride_get_icon_svg( 'search' ); ?></a>
+	<?php endif; ?>
 
 	<div class="header__search-form-wrapper">
 		<form class="header__search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
