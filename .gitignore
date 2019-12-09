@@ -6,7 +6,6 @@
 *.swp
 Thumbs.db
 
-
 # large/disallowed file types
 # a CDN should be used for these
 *.hqx
@@ -43,6 +42,7 @@ Thumbs.db
 *.avi
 
 # development area
+*.map
 /.sass-cache
 /node_modules
 /build
