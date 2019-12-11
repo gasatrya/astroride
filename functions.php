@@ -152,7 +152,7 @@ function astroride_scripts() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'astroride-fonts', astroride_fonts_url(), array(), $theme_version );
+	wp_enqueue_style( 'astroride-fonts', astroride_fonts_url(), array(), null );
 
 	wp_enqueue_style( 'astroride-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
@@ -169,34 +169,45 @@ function astroride_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'astroride_scripts' );
 
-/**
- * Register custom fonts.
- */
-function astroride_fonts_url() {
-	$fonts_url = '';
-
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by Amiri, translate this to 'off'. Do not translate
-	 * into your own language.
+if ( ! function_exists( 'astroride_fonts_url' ) ) :
+	/**
+	 * Register Google fonts.
 	 */
-	$amiri = _x( 'on', 'Amiri font: on or off', 'astroride' );
+	function astroride_fonts_url() {
+		$fonts_url = '';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
 
-	if ( 'off' !== $amiri ) {
-		$font_families = array();
+		/*
+		 * translators: If there are characters in your language that are not supported
+		 * by Nunito, translate this to 'off'. Do not translate into your own language.
+		 */
+		if ( 'off' !== _x( 'on', 'Nunito font: on or off', 'astroride' ) ) {
+			$fonts[] = 'Nunito:400,600,700,800';
+		}
 
-		$font_families[] = 'Amiri:400,400i,700,700i';
+		/*
+		 * translators: If there are characters in your language that are not supported
+		 * by Lora, translate this to 'off'. Do not translate into your own language.
+		 */
+		if ( 'off' !== _x( 'on', 'Lora font: on or off', 'astroride' ) ) {
+			$fonts[] = 'Lora:400,400i,700,700i';
+		}
 
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
+		if ( $fonts ) {
+			$fonts_url = add_query_arg(
+				array(
+					'family'  => urlencode( implode( '|', $fonts ) ),
+					'subset'  => urlencode( $subsets ),
+					'display' => urlencode( 'swap' ),
+				),
+				'https://fonts.googleapis.com/css'
+			);
+		}
 
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		return $fonts_url;
 	}
-
-	return esc_url_raw( $fonts_url );
-}
+endif;
 
 /**
  * Implement the Custom Header feature.

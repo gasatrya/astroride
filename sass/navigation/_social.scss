@@ -1,16 +1,10 @@
 .header__social {
 	position: absolute;
-	left: auto;
-	right: em(60px);
+	right: em(30px);
 	line-height: 0;
 
 	@include media($tablet) {
-		left: em(24px);
-		right: auto;
-	}
-
-	@include media($tablet__wide) {
-		left: em(40px);
+		right: em(65px);
 	}
 
 	&::after {
@@ -39,7 +33,7 @@
 	}
 
 	.svg-icon {
-		width: em(18px);
+		width: em(20px);
 	}
 
 	path {

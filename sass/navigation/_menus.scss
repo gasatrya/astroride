@@ -128,11 +128,13 @@
 	a {
 		display: block;
 		text-decoration: none;
-		font-size: em(14px);
+		font-weight: 600;
+		font-family: $font__body_alt;
 		text-transform: uppercase;
 		color: $color__menu-link;
 		letter-spacing: em(1px);
 		padding: 1em 0;
+		@include fluid-type(font-size, 1280px, 1920px, 14px, 18px);
 
 		@include media($tablet) {
 			padding: 1.36em 0;

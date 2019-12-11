@@ -28,31 +28,23 @@
 
 	<header class="header">
 
-		<div class="header__topbar">
-			<div class="header__topbar-container">
+		<div class="header__container">
 
-				<div class="header__topbar-wrapper">
+			<div class="header__wrapper">
 
-					<?php get_template_part( 'template-parts/menu/menu', 'social' ); ?>
-
-					<?php get_template_part( 'template-parts/menu/menu', 'navigation' ); ?>
-
-					<?php get_template_part( 'template-parts/header/header', 'search' ); ?>
-
-				</div><!-- .header__topbar-wrapper -->
-
-			</div><!-- .header__topbar-container -->
-		</div><!-- .header__topbar -->
-
-		<div class="header__branding">
-			<div class="header__branding-container">
-
-				<div class="header__branding-wrapper">
+				<div class="header__branding">
 					<?php astroride_site_branding(); ?>
-				</div><!-- .header__branding-wrapper -->
+				</div>
 
-			</div><!-- .header__branding-container -->
-		</div><!-- .header__branding -->
+				<?php get_template_part( 'template-parts/menu/menu', 'navigation' ); ?>
+
+				<?php get_template_part( 'template-parts/menu/menu', 'social' ); ?>
+
+				<?php get_template_part( 'template-parts/header/header', 'search' ); ?>
+
+			</div><!-- .header__wrapper -->
+
+		</div><!-- .header__container -->
 
 	</header><!-- .header -->
 

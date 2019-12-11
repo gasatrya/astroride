@@ -288,7 +288,7 @@
 
 	&__content-article {
 		margin-bottom: em(40px);
-		@include fluid-type(480px, 1440px, 16px, 20px);
+		@include fluid-type(font-size, 480px, 1440px, 16px, 20px);
 	}
 
 	&__footer {

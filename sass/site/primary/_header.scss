@@ -1,49 +1,38 @@
 .header {
+	background-color: $color__background-header;
 
-	&__topbar {
-		background-color: $color__background-header;
+	&__container {
+		padding-left: em(30px);
+		padding-right: em(30px);
+	}
 
-		&-wrapper {
-			@extend %flex;
-			justify-content: center;
-			align-items: center;
-			height: em(60px);
-		}
-
+	&__wrapper {
+		@extend %flex;
+		align-items: center;
+		height: em(100px);
 	}
 
 	&__branding {
-		padding: em(70px) 0;
-
-		&-container {
-			@extend %container;
-			position: relative;
+		@include media($tablet) {
+			padding-right: em(45px);
 		}
-
-		&-wrapper {
-			text-align: center;
+		@include media($desktop__wider) {
+			padding-right: em(60px);
 		}
-
-		.single &,
-		.page &,
-		.archive &,
-		.search &,
-		.error404 & {
-			border-bottom: em(1px) solid $color__border-input;
-			margin-bottom: em(80px);
-		}
-
 	}
 
 	&__title {
+		font-family: $font__body_alt;
+		font-weight: 800;
 		margin-bottom: 0;
 		text-transform: uppercase;
-		letter-spacing: em(1px);
-	}
-
-	&__tagline {
-		font-size: em(20px);
-		margin-bottom: 0;
+		@include fluid-type(font-size, 1280px, 1920px, 33px, 36px);
+		a {
+			color: $color__text-title;
+			&:hover {
+				color: $color__link-hover;
+			}
+		}
 	}
 
 	&__logo-link {

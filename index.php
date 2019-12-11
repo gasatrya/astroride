@@ -15,14 +15,11 @@
 get_header();
 ?>
 
-	<?php
-	// Home layout.
-	$home_layout = get_theme_mod( 'home_layout', 'list' );
-	?>
+	<?php get_template_part( 'template-parts/hero' ); ?>
 
 	<div class="content__container">
 		<div class="content__row">
-			<main class="content__main content__main-<?php echo esc_html( $home_layout ); ?>">
+			<main class="content__main">
 
 			<?php
 			if ( have_posts() ) :
@@ -40,11 +37,7 @@ get_header();
 
 					the_post();
 
-					if ( $wp_query->current_post === 0 ) :
-						get_template_part( 'template-parts/content/content', 'first-post' );
-					else :
-						get_template_part( 'template-parts/content/content', get_post_type() );
-					endif;
+					get_template_part( 'template-parts/content/content' );
 
 				endwhile;
 

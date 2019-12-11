@@ -48,7 +48,7 @@
 			</div>
 
 		</div>
-	</footer><!-- #colophon -->
+	</footer><!-- .footer -->
 
 </div><!-- .site -->
 

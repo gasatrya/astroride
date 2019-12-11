@@ -1,11 +1,11 @@
 .header__search {
 	position: absolute;
-	right: em(24px);
+	right: em(20px);
 	line-height: 0;
 	padding: 1.11em 0;
 
 	@include media($tablet__wide) {
-		right: em(40px);
+		right: em(30px);
 	}
 
 	&:hover {

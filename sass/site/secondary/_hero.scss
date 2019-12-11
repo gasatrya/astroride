@@ -1,0 +1,30 @@
+.hero {
+	@extend %flex;
+	align-items: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: calc(100vh - 150px);
+
+	&__container {
+		@extend %container;
+	}
+
+	&__wrapper {
+		@include fluid-type(max-width, 1280px, 1920px, 550px, 670px);
+	}
+
+	&__title {
+		font-weight: 800;
+		font-family: $font__body_alt;
+		text-transform: uppercase;
+		color: $color__text-title;
+		margin-bottom: em(5px);
+		@include fluid-type(font-size, 480px, 1920px, 26px, 50px);
+	}
+
+	&__tagline {
+		color: $color__text-tagline;
+		@include fluid-type(font-size, 480px, 1920px, 18px, 28px);
+	}
+}

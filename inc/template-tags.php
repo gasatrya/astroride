@@ -45,7 +45,7 @@ if ( ! function_exists( 'astroride_site_branding' ) ) :
 			else :
 				echo '<p class="header__title"><a href="' . esc_url( get_home_url() ) . '" rel="home">' . esc_attr( get_bloginfo( 'name' ) ) . '</a></p>'. "\n";
 			endif;
-			echo '<p class="header__tagline">' . esc_attr( get_bloginfo( 'description', 'display' ) ) . '</p>'. "\n";
+			// echo '<p class="header__tagline">' . esc_attr( get_bloginfo( 'description', 'display' ) ) . '</p>'. "\n";
 		endif;
 
 	}
@@ -460,11 +460,10 @@ if ( ! function_exists( 'astroride_footer_text' ) ) :
 	function astroride_footer_text() {
 
 		// Get the customizer data
-		$default = 'Site by <a href="https://idenovasi.com/">HappyThemes</a>';
-		$footer_text = get_theme_mod( 'copyrights_text', $default );
+		$text = 'Designed & Developed by <a href="https://idenovasi.com/">Idenovasi</a>';
 
 		// Display the data
-		echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';
+		echo '<p class="copyright">' . wp_kses_post( $text ) . '</p>';
 
 	}
 endif;

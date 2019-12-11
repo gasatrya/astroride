@@ -1,6 +1,6 @@
 <?php
 /**
- * _s Theme Customizer
+ * Astroride Theme Customizer
  *
  * @package Astroride
  */

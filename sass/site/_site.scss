@@ -4,7 +4,7 @@
 
 // Container
 %container {
-	max-width: em(1200px);
+	max-width: em(1170px);
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -49,9 +49,9 @@
 @import "primary/posts-and-pages";
 
 /*--------------------------------------------------------------
-## Featured Posts
+## Hero
 --------------------------------------------------------------*/
-@import "secondary/featured";
+@import "secondary/hero";
 
 /*--------------------------------------------------------------
 ## Comments
