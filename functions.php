@@ -49,7 +49,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'astroride-first-post', 1152, 680, true );
+		set_post_thumbnail_size( 1280, 9999 );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -88,7 +88,7 @@ if ( ! function_exists( 'astroride_setup' ) ) :
 		add_theme_support( 'wp-block-styles' );
 
 		// Add support for full and wide align images.
-		// add_theme_support( 'align-wide' );
+		add_theme_support( 'align-wide' );
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
@@ -123,7 +123,7 @@ function astroride_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'astroride_content_width', 1152 );
+	$GLOBALS['content_width'] = apply_filters( 'astroride_content_width', 1280 );
 }
 add_action( 'after_setup_theme', 'astroride_content_width', 0 );
 

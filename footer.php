@@ -13,16 +13,6 @@
 
 	</div><!-- .content -->
 
-	<?php
-	// Instagram shortcode.
-	$shortcode = get_theme_mod( 'instagram' );
-	if ( $shortcode ) :
-	?>
-		<div class="instagram">
-			<?php echo do_shortcode( esc_html( $shortcode ) ); ?>
-		</div>
-	<?php endif; ?>
-
 	<footer class="footer">
 		<div class="footer__container">
 
@@ -35,10 +25,6 @@
 							'<a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>'
 						);
 					?>
-				</div>
-
-				<div class="footer__social">
-					<?php get_template_part( 'template-parts/menu/menu', 'social' ); ?>
 				</div>
 
 				<div class="footer__designer">

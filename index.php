@@ -52,8 +52,6 @@ get_header();
 
 			</main><!-- .content__main -->
 
-			<?php get_sidebar(); // get sidebar.php ?>
-
 		</div><!-- .content__row -->
 	</div><!-- .content__container -->
 

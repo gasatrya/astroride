@@ -1,20 +1,26 @@
 .posts-navigation {
-	margin-bottom: em(60px);
-
-	.home .content__main-grid &,
-	.blog .content__main-grid &,
-	.archive .content__main-grid &,
-	.search .content__main-grid & {
-		width: 100%;
-		padding-left: em(20px);
-		padding-right: em(20px);
-	}
 
 	.nav-links {
 		@extend %flex;
 
 		a {
-			@extend %post__small-text;
+			@extend %flex;
+			justify-content: center;
+			align-items: center;
+			font-family: $font__body-alt;
+			font-size: em(14px);
+			text-transform: uppercase;
+			width: em(170px);
+			height: em(55px);
+			background-color: $color__background-button;
+			color: $color__text-button;
+			box-shadow: 2px 2px 0 #2178AF;
+			position: relative;
+			transition: bottom 250ms ease-in-out;
+			bottom: 0;
+			&:hover {
+				bottom: em(5px);
+			}
 		}
 	}
 

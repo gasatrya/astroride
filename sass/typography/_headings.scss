@@ -14,22 +14,26 @@
 
 // H2
 %h2 {
-	font-size: 2.074em;
+	// font-size: 2.074em;
+	@include fluid-type(font-size, 1280px, 1920px, 33px, 40px);
 }
 
 // H3
 %h3 {
-	font-size: 1.728em;
+	// font-size: 1.728em;
+	@include fluid-type(font-size, 1280px, 1920px, 27px, 33px);
 }
 
 // H4
 %h4 {
-	font-size: 1.44em;
+	// font-size: 1.44em;
+	@include fluid-type(font-size, 1280px, 1920px, 23px, 27px);
 }
 
 // H5
 %h5 {
-	font-size: 1.2em;
+	// font-size: 1.2em;
+	@include fluid-type(font-size, 1280px, 1920px, 19px, 23px);
 }
 
 // Small
@@ -45,9 +49,10 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-family: $font__body_alt;
+	font-family: $font__body-alt;
 	font-weight: 800;
 	color: $color__text-heading;
+	margin-bottom: .5em;
 
 	> a {
 		color: inherit;

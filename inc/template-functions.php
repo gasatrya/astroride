@@ -70,7 +70,7 @@ add_filter( 'excerpt_more', 'astroride_excerpt_more' );
  * Limit excerpt length
  */
 function astroride_excerpt_length( $length ) {
-	return 25;
+	return 40;
 }
 add_filter( 'excerpt_length', 'astroride_excerpt_length', 999 );
 

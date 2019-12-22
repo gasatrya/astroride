@@ -1,3 +1,7 @@
+%footer__text {
+	font-family: $font__body-alt;
+}
+
 .footer {
 	background-color: $color__background-footer;
 	color: $color__text-footer;
@@ -16,32 +20,25 @@
 	}
 
 	&__copyright {
+		@extend %footer__text;
 		margin-bottom: em(20px);
 		@include media($tablet) {
 			position: absolute;
 			left: em(40px);
-			width: 30%;
 			text-align: left;
 			margin-bottom: 0;
 		}
 	}
 
-	&__social {
-		margin-bottom: em(20px);
-		@include media($tablet) {
-			margin-bottom: 0;
-		}
-		.header__social {
-			position: relative;
-			left: auto;
-			right: 0;
-		}
-	}
-
 	&__designer {
+		@extend %footer__text;
 		@include media($tablet) {
 			position: absolute;
 			right: em(40px);
+		}
+
+		&-text {
+			margin-bottom: 0;
 		}
 	}
 }

@@ -45,7 +45,6 @@ if ( ! function_exists( 'astroride_site_branding' ) ) :
 			else :
 				echo '<p class="header__title"><a href="' . esc_url( get_home_url() ) . '" rel="home">' . esc_attr( get_bloginfo( 'name' ) ) . '</a></p>'. "\n";
 			endif;
-			// echo '<p class="header__tagline">' . esc_attr( get_bloginfo( 'description', 'display' ) ) . '</p>'. "\n";
 		endif;
 
 	}
@@ -63,12 +62,18 @@ if ( ! function_exists( 'astroride_posted_on' ) ) :
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date( 'M d, Y' ) ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = '<a class="post__date-link" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+		$posted_on = '<span class="post__meta-info">%1$s</span><a class="post__date-link" href="%2$s" rel="bookmark">%3$s</a>';
+
+		$posted_on = sprintf( $posted_on,
+			esc_html__( 'Published', 'astroride' ),
+			esc_url( get_permalink() ),
+			$time_string
+		);
 
 		echo '<span class="post__date">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
@@ -80,14 +85,21 @@ if ( ! function_exists( 'astroride_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function astroride_posted_by() {
-		$avatar = '<span class="post__author-avatar">' . get_avatar( get_the_author_meta( 'ID' ), 32 ) . '</span>';
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'astroride' ),
-			'<span class="post__author-vcard"><a class="post__author-link url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		$avatar = get_avatar( get_the_author_meta( 'ID' ), 35 );
+		$byline = '<span class="post__meta-info">%1$s</span><span class="post__author-vcard"><a class="post__author-link url fn n" href="%2$s">%3$s</a></span>';
+
+		$byline = sprintf( $byline,
+			esc_html__( 'Author', 'astroride' ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
 		);
 
-		$author = $avatar . '<span class="post__author-byline">' . $byline . '</span>';
+		$author = '<span class="post__author-avatar">%1$s</span><span class="post__author-byline">%2$s</span>';
+
+		$author = sprintf( $author,
+			$avatar,
+			$byline
+		);
 
 		echo '<span class="post__author">' . $author . '</span>'; // WPCS: XSS OK.
 
@@ -109,7 +121,14 @@ if ( ! function_exists( 'astroride_post_category' ) ) :
 		$categories_list = get_the_category_list( esc_html__( ', ', 'astroride' ) );
 
 		if ( $categories_list ) {
-			echo '<span class="post__categories">' . $categories_list . '</span>'; // WPCS: XSS OK.
+			$post_categories = '<span class="post__meta-info">%1$s</span><span class="post__categories-list">%2$s</span>';
+
+			$post_categories = sprintf( $post_categories,
+				esc_html__( 'Categories', 'astroride' ),
+				$categories_list
+			);
+
+			echo '<span class="post__categories">' . $post_categories . '</span>'; // WPCS: XSS OK.
 		}
 
 	}
@@ -117,7 +136,7 @@ endif;
 
 if ( ! function_exists( 'astroride_post_tags' ) ) :
 	/**
-	 * Prints HTML with meta information for the current categories.
+	 * Prints HTML with meta information for the current tags.
 	 */
 	function astroride_post_tags() {
 
@@ -132,6 +151,21 @@ if ( ! function_exists( 'astroride_post_tags' ) ) :
 		if ( $tags_list ) {
 			echo '<span class="post__tags">' . $tags_list . '</span>'; // WPCS: XSS OK.
 		}
+
+	}
+endif;
+
+if ( ! function_exists( 'astroride_post_readmore' ) ) :
+	/**
+	 * Prints HTML with meta information for post readmore link.
+	 */
+	function astroride_post_readmore() {
+
+		$readmore = sprintf(
+			esc_html__( 'Continue Reading', 'astroride' )
+		);
+
+		echo '<span class="post__readmore"><a class="post__readmore-link" href="' . esc_url( get_permalink() ) . '">' . $readmore . '</a></span>';
 
 	}
 endif;
@@ -463,7 +497,7 @@ if ( ! function_exists( 'astroride_footer_text' ) ) :
 		$text = 'Designed & Developed by <a href="https://idenovasi.com/">Idenovasi</a>';
 
 		// Display the data
-		echo '<p class="copyright">' . wp_kses_post( $text ) . '</p>';
+		echo '<p class="footer__designer-text">' . wp_kses_post( $text ) . '</p>';
 
 	}
 endif;

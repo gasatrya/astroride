@@ -12,7 +12,7 @@ get_header();
 
 	<div class="content__container">
 		<div class="content__row">
-			<main class="content__main content__main-grid">
+			<main class="content__main">
 
 			<?php
 			if ( have_posts() ) : ?>
