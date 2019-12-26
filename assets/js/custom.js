@@ -1,7 +1,9 @@
-( function( $ ) {
+(function ($) {
 
 	// Document ready
-	$( function( ) {
-	} );
+	$(function () {
 
-}( jQuery ) );
+
+	});
+
+}(jQuery));

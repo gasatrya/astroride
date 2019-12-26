@@ -2,7 +2,10 @@
   "name": "astroride",
   "version": "1.0.0",
   "main": "Gruntfile.js",
-  "license": "GPL-2.0-only",
+	"license": "GPL-2.0-only",
+	"dependencies": {
+		"@types/jquery": "^3.3.31"
+	},
   "devDependencies": {
     "@lodder/grunt-postcss": "^2.0.0",
     "autoprefixer": "^9.7.3",
