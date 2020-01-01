@@ -31,6 +31,14 @@
 	}
 }
 
+%post__info {
+	font-size: em(10px);
+	font-family: $font__body-alt;
+	text-transform: uppercase;
+	color: $color__text-meta-alt;
+	line-height: .5;
+}
+
 // Main content layout
 .content {
 
@@ -76,10 +84,24 @@
 		text-transform: uppercase;
 	}
 
+	&__archive-desc {
+		margin-bottom: em(20px);
+	}
+
 }
 
 .post {
 	@include fluid-type(margin-bottom, 1024px, 1920px, 60px, 125px);
+	.single-post & {
+		&::after {
+			content: "";
+			border-bottom: (1px) solid $color__background-hr;
+			width: em(450px);
+			margin: auto;
+			display: block;
+			padding-top: em(20px);
+		}
+	}
 
 	&__wrapper {}
 
@@ -111,12 +133,12 @@
 	&__meta {
 		@extend %flex;
 
+		.single-post & {
+			@include fluid-type(margin-bottom, 786px, 1920px, 15px, 30px);
+		}
+
 		&-info {
-			font-size: em(10px);
-			font-family: $font__body-alt;
-			text-transform: uppercase;
-			color: $color__text-meta-alt;
-			line-height: .5;
+			@extend %post__info;
 		}
 
 		a {

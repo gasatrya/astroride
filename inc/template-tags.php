@@ -349,13 +349,6 @@ if ( ! function_exists( 'astroride_post_author_box' ) ) :
 	 */
 	function astroride_post_author_box() {
 
-		// Get the data from Customizer
-		$show = get_theme_mod( 'post_author_box', true );
-
-		if ( true != $show ) {
-			return;
-		}
-
 		// Bail if not on the single post.
 		if ( ! is_singular( 'post' ) ) {
 			return;
@@ -365,79 +358,43 @@ if ( ! function_exists( 'astroride_post_author_box' ) ) :
 		if ( ! get_the_author_meta( 'description' ) ) {
 			return;
 		}
-
-		// Get the author social information.
-		$url       = get_the_author_meta( 'url' );
-		$twitter   = get_the_author_meta( 'twitter' );
-		$facebook  = get_the_author_meta( 'facebook' );
-		$instagram = get_the_author_meta( 'instagram' );
-		$pinterest = get_the_author_meta( 'pinterest' );
-		$linkedin  = get_the_author_meta( 'linkedin' );
-		$dribbble  = get_the_author_meta( 'dribbble' );
 	?>
 
 		<div class="author-bio">
+			<div class="author-bio__wrapper">
 
-			<div class="author-bio__avatar">
-				<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'astroride_author_bio_avatar_size', 90 ), '', strip_tags( get_the_author() ) ); ?>
-			</div>
+				<div class="author-bio__avatar">
+					<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'astroride_author_bio_avatar_size', 90 ), '', strip_tags( get_the_author() ) ); ?>
+				</div>
 
-			<div class="author-bio__details">
+				<div class="author-bio__details">
 
-				<h3 class="author-bio__name">
-					<a class="author-bio__name-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo strip_tags( get_the_author() ); ?></a>
-				</h3>
+					<h3 class="author-bio__name">
+						<a class="author-bio__name-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo strip_tags( get_the_author() ); ?></a>
+					</h3>
 
-				<p class="author-bio__desc">
-					<?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?>
-				</p>
+					<p class="author-bio__desc">
+						<?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?>
+					</p>
 
-				<?php if ( $url || $twitter || $facebook || $gplus || $instagram || $pinterest || $linkedin || $dribbble ) : ?>
-					<div class="author-bio__social">
-						<?php if ( $url ) { ?>
-							<a class="author-bio__social-link website" href="<?php echo esc_url( $url ); ?>"><?php echo astroride_get_icon_svg( 'link' ); ?></a>
-						<?php } ?>
-						<?php if ( $twitter ) { ?>
-							<a class="author-bio__social-link twitter" href="<?php echo esc_url( $twitter ); ?>"><?php echo astroride_get_social_icon_svg( 'twitter' ); ?></a>
-						<?php } ?>
-						<?php if ( $facebook ) { ?>
-							<a class="author-bio__social-link facebook" href="<?php echo esc_url( $facebook ); ?>"><?php echo astroride_get_social_icon_svg( 'facebook' ); ?></a>
-						<?php } ?>
-						<?php if ( $instagram ) { ?>
-							<a class="author-bio__social-link instagram" href="<?php echo esc_url( $instagram ); ?>"><?php echo astroride_get_social_icon_svg( 'instagram' ); ?></a>
-						<?php } ?>
-						<?php if ( $pinterest ) { ?>
-							<a class="author-bio__social-link pinterest" href="<?php echo esc_url( $pinterest ); ?>"><?php echo astroride_get_social_icon_svg( 'pinterest' ); ?></a>
-						<?php } ?>
-						<?php if ( $linkedin ) { ?>
-							<a class="author-bio__social-link linkedin" href="<?php echo esc_url( $linkedin ); ?>"><?php echo astroride_get_social_icon_svg( 'linkedin' ); ?></a>
-						<?php } ?>
-						<?php if ( $dribbble ) { ?>
-							<a class="author-bio__social-link dribbble" href="<?php echo esc_url( $dribbble ); ?>"><?php echo astroride_get_social_icon_svg( 'dribbble' ); ?></a>
-						<?php } ?>
-					</div>
-				<?php endif; ?>
+					<p class="author-bio__more">
+						<a class="author-bio__name-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php esc_attr_e( 'Read More Posts By This Author', 'astroride' ); ?></a>
+					</p>
 
-			</div>
+				</div>
 
+			</div><!-- .author-bio__wrapper -->
 		</div><!-- .author-bio -->
 
 	<?php
 	}
 endif;
 
-if ( ! function_exists( 'astroride_next_prev_post' ) ) :
+if ( ! function_exists( 'astroride_post_next_prev' ) ) :
 	/**
 	 * Custom next post link
 	 */
-	function astroride_next_prev_post() {
-
-		// Get the data set in customizer
-		$nav = get_theme_mod( 'post_navigation', true );
-
-		if ( true != $nav ) {
-			return;
-		}
+	function astroride_post_next_prev() {
 
 		// Display on single post page.
 		if ( ! is_single() ) {
@@ -454,10 +411,6 @@ if ( ! function_exists( 'astroride_next_prev_post' ) ) :
 				<?php if ( $prev ) : ?>
 					<div class="post-pagination__prev">
 
-						<?php if ( has_post_thumbnail( $prev->ID ) ) : ?>
-							<a class="post-pagination__link" href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>"><?php echo get_the_post_thumbnail( $prev->ID, 'thumbnail', array( 'class' => 'post-pagination__img', 'alt' => esc_attr( get_the_title( $prev->ID ) ) ) ) ?></a>
-						<?php endif; ?>
-
 						<div class="post-pagination__detail">
 							<span><?php esc_html_e( 'Previous Post', 'astroride' ); ?></span>
 							<a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>" class="post-pagination__title"><?php echo esc_attr( get_the_title( $prev->ID ) ); ?></a>
@@ -468,10 +421,6 @@ if ( ! function_exists( 'astroride_next_prev_post' ) ) :
 
 				<?php if ( $next ) : ?>
 					<div class="post-pagination__next">
-
-						<?php if ( has_post_thumbnail( $next->ID ) ) : ?>
-							<a class="post-pagination__link" href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>"><?php echo get_the_post_thumbnail( $next->ID, 'thumbnail', array( 'class' => 'post-pagination__img', 'alt' => esc_attr( get_the_title( $next->ID ) ) ) ) ?></a>
-						<?php endif; ?>
 
 						<div class="post-pagination__detail">
 							<span><?php esc_html_e( 'Next Post', 'astroride' ); ?></span>

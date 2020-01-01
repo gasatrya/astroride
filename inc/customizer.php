@@ -25,13 +25,6 @@ function astroride_customize_register( $wp_customize ) {
 		) );
 	}
 
-	// Remove section
-	$wp_customize->remove_section( 'colors' );
-	$wp_customize->remove_section( 'background_image' );
-
-	// Move custom logo control
-	$wp_customize->get_control( 'custom_logo' )->section = 'logo';
-
 }
 add_action( 'customize_register', 'astroride_customize_register' );
 

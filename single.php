@@ -23,7 +23,9 @@ get_header();
 				endwhile; // End of the loop.
 				?>
 
-				<?php astroride_post_author_box(); ?>
+				<?php astroride_post_next_prev(); // Next Prev post. ?>
+
+				<?php astroride_post_author_box(); // Post author profile. ?>
 
 				<?php
 				// If enable and comments are open or we have at least one comment, load up the comment template

@@ -20,6 +20,14 @@
 		<?php the_title( '<h1 class="post__title-h1">', '</h1>' ); ?>
 	</header>
 
+	<?php if ( 'post' === get_post_type() ) : ?>
+		<div class="post__meta">
+			<?php astroride_posted_by(); ?>
+			<?php astroride_posted_on(); ?>
+			<?php astroride_post_category(); ?>
+		</div>
+	<?php endif; ?>
+
 	<div class="post__content">
 
 		<div class="post__content-article">

@@ -5,22 +5,11 @@
 
 		a {
 			@extend %flex;
+			@extend .button;
 			justify-content: center;
 			align-items: center;
-			font-family: $font__body-alt;
 			font-size: em(14px);
-			text-transform: uppercase;
 			width: em(170px);
-			height: em(55px);
-			background-color: $color__background-button;
-			color: $color__text-button;
-			box-shadow: 2px 2px 0 #2178AF;
-			position: relative;
-			transition: bottom 250ms ease-in-out;
-			bottom: 0;
-			&:hover {
-				bottom: em(5px);
-			}
 		}
 	}
 
@@ -42,7 +31,7 @@
  */
 .post-pagination {
 	@extend %flex;
-	margin-bottom: em(60px);
+	@include fluid-type(margin-bottom, 1024px, 1920px, 60px, 125px);
 
 	&__wrapper {
 		@include grid-row;
@@ -84,15 +73,17 @@
 
 	&__detail {
 		span {
+			@extend %post__info;
 			display: block;
-			text-transform: uppercase;
-			font-size: em(14px);
-			color: $color__link;
+			margin-bottom: em(7px);
 		}
 	}
 
 	&__title {
-		font-size: em(18px);
+		@include fluid-type(font-size, 480px, 1920px, 14px, 18px);
+		font-family: $font__body-alt;
+		font-weight: 700;
 		color: inherit;
+		line-height: normal;
 	}
 }

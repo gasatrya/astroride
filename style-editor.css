@@ -1,7 +1,7 @@
 /*!
 Astroride Editor Styles
 */
-@import url("https://fonts.googleapis.com/css?family=Amiri:400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Nunito:400,600,700,800&display=swap");
 body, p, .editor-default-block-appender .editor-default-block-appender__content {
   font-size: 20px;
 }
@@ -175,7 +175,7 @@ h3 > a:hover,
 h4 > a:hover,
 h5 > a:hover,
 h6 > a:hover {
-  color: #2484c1;
+  color: #188fd9;
 }
 
 h1 {
@@ -216,7 +216,7 @@ a {
 }
 
 a:hover, a:focus, a:active {
-  color: #2484c1;
+  color: #188fd9;
 }
 
 a:focus {

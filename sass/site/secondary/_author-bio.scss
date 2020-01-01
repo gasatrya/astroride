@@ -1,81 +1,40 @@
 .author-bio {
-	text-align: center;
-	border-bottom: em(1px) solid $color__border-input;
-	padding-bottom: em(40px);
-	padding-bottom: em(40px);
-	margin-bottom: em(60px);
+	@include fluid-type(margin-bottom, 1024px, 1920px, 60px, 125px);
+
+	&__wrapper {
+		@include grid-row;
+		width: 100%;
+	}
+
+	&__avatar {
+		@include grid-column(2);
+	}
+
+	&__details {
+		@include grid-column(10);
+	}
 
 	.avatar {
 		border-radius: 50%;
 	}
 
 	&__name {
+		@include fluid-type(font-size, 480px, 1920px, 18px, 22px);
 		margin-top: 0;
 		margin-bottom: em(5px);
+		font-weight: 700;
 	}
 
 	&__desc {
-		font-size: em(18px);
+		@include fluid-type(font-size, 480px, 1920px, 16px, 18px);
 	}
 
-	&__social-link {
-		padding: 0 .5em;
-		.svg-icon {
-			width: em(20px);
-		}
-
-		&.website {
-			&:hover {
-				opacity: .5;
-			}
-		}
-
-		&.twitter {
-			&:hover {
-				path {
-					fill: #1da1f2;
-				}
-			}
-		}
-
-		&.facebook {
-			&:hover {
-				path {
-					fill: #3b5998;
-				}
-			}
-		}
-
-		&.instagram {
-			&:hover {
-				path {
-					fill: #405de6;
-				}
-			}
-		}
-
-		&.pinterest {
-			&:hover {
-				path {
-					fill: #bd081c;
-				}
-			}
-		}
-
-		&.linkedin {
-			&:hover {
-				path {
-					fill: #0077b5;
-				}
-			}
-		}
-
-		&.dribbble {
-			&:hover {
-				path {
-					fill: #ea4c89;
-				}
-			}
+	&__more {
+		a {
+			@include fluid-type(font-size, 480px, 1920px, 12px, 14px);
+			text-transform: uppercase;
+			font-family: $font__body-alt;
+			display: inline-block;
 		}
 	}
 }
