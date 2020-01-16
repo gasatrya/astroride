@@ -95,6 +95,52 @@ p {
 @import "sass/elements/lists";
 @import "sass/navigation/links";
 
+// Use white text against these backgrounds by default.
+.has-accent-background-color,
+.has-primary-background-color,
+.has-secondary-background-color,
+.has-light-gray-background-color {
+	color: $color__background-body;
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	a {
+		color: $color__background-body;
+	}
+}
+
+// Use dark gray text against this background by default.
+.has-white-background-color {
+	color: $color__text-main;
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	a {
+		color: $color__text-main;
+	}
+}
+
+/** === Post Title === */
+
+.editor-post-title__block {
+
+	.editor-post-title__input {
+		font-family: $font__body-alt;
+		font-weight: 800;
+	}
+
+}
+
 /** === Default Appender === */
 
 .editor-default-block-appender .editor-default-block-appender__content {
@@ -102,8 +148,52 @@ p {
 	font-family: $font__body;
 }
 
+/** === Heading === */
+
 .wp-block-heading {
 	strong {
-		font-weight: bold;
+		font-weight: bolder;
 	}
+}
+
+/** === Paragraph === */
+
+.wp-block-paragraph {
+
+	&.has-drop-cap:not(:focus)::first-letter {
+		font-size: 90px;
+		font-weight: 800;
+		margin: .17em .1em 0 0;
+	}
+
+	&.has-drop-cap:not(:focus)::after {
+		padding-top: 0;
+		display: inline;
+	}
+}
+
+/** === Gallery === */
+
+.wp-block-gallery {
+
+	.blocks-gallery-grid {
+		margin-left: 0;
+	}
+}
+
+/** === Image === */
+.wp-block-image {
+
+	&[data-align="wide"] {
+		@include media($tablet) {
+			margin-left: calc(25% - 25vw);
+			margin-right: calc(25% - 25vw);
+			max-width: 100vw;
+		}
+		@include media($desktop__wider) {
+			margin-left: calc(20% - 20vw);
+			margin-right: calc(20% - 20vw);
+		}
+	}
+
 }

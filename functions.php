@@ -15,102 +15,171 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
 	return;
 }
 
-if ( ! function_exists( 'astroride_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ */
+function astroride_theme_setup() {
+	/*
+		* Make theme available for translation.
+		* Translations can be filed in the /languages/ directory.
+		* If you're building a theme based on _s, use a find and replace
+		* to change 'astroride' to the name of your theme in all the template files.
+		*/
+	load_theme_textdomain( 'astroride', get_template_directory() . '/languages' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	/*
+		* Let WordPress manage the document title.
+		* By adding theme support, we declare that this theme does not use a
+		* hard-coded <title> tag in the document head, and expect WordPress to
+		* provide it for us.
+		*/
+	add_theme_support( 'title-tag' );
+
+	/*
+		* Enable support for Post Thumbnails on posts and pages.
+		*
+		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		*/
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 1280, 9999 );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'menu-1' => esc_html__( 'Primary', 'astroride' ),
+		'social' => esc_html__( 'Social', 'astroride' ),
+	) );
+
+	/*
+		* Switch default core markup for search form, comment form, and comments
+		* to output valid HTML5.
+		*/
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+
 	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
+	 * Add support for core custom logo.
 	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
+	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
-	function astroride_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on _s, use a find and replace
-		 * to change 'astroride' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'astroride', get_template_directory() . '/languages' );
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 320,
+			'width'       => 190,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
 
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+	// Set up the WordPress core custom background feature.
+	add_theme_support( 'custom-background', apply_filters( 'astroride_custom_background_args', array(
+		'default-color' => 'ffffff',
+		'default-image' => '',
+	) ) );
 
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		add_theme_support( 'title-tag' );
+	// Add theme support for selective refresh for widgets.
+	add_theme_support( 'customize-selective-refresh-widgets' );
 
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 1280, 9999 );
+	// Add support for responsive embeds.
+	add_theme_support( 'responsive-embeds' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'astroride' ),
-			'social' => esc_html__( 'Social', 'astroride' ),
-		) );
+}
+add_action( 'after_setup_theme', 'astroride_theme_setup' );
 
-		/*
-		 * Switch default core markup for search form, comment form, and comments
-		 * to output valid HTML5.
-		 */
-		add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		) );
+/**
+ * Block Editor Settings (Gutenberg).
+ */
+function astroride_block_editor() {
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
+	// Add support for Block Styles.
+	add_theme_support( 'wp-block-styles' );
+
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+
+	// Enqueue editor styles.
+	add_editor_style( 'style-editor.css' );
+
+	// Add custom editor font sizes.
+	add_theme_support(
+		'editor-font-sizes',
+		array(
 			array(
-				'height'      => 320,
-				'width'       => 190,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
+				'name'      => esc_html__( 'Small', 'astroride' ),
+				'shortName' => esc_html__( 'S', 'astroride' ),
+				'size'      => 16,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => esc_html__( 'Normal', 'astroride' ),
+				'shortName' => esc_html__( 'M', 'astroride' ),
+				'size'      => 20,
+				'slug'      => 'normal',
+			),
+			array(
+				'name'      => esc_html__( 'Large', 'astroride' ),
+				'shortName' => esc_html__( 'L', 'astroride' ),
+				'size'      => 24,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => esc_html__( 'Huge', 'astroride' ),
+				'shortName' => esc_html__( 'XL', 'astroride' ),
+				'size'      => 28,
+				'slug'      => 'huge',
+			),
+		)
+	);
 
-		// Add support for Block Styles.
-		add_theme_support( 'wp-block-styles' );
+	// Editor color palette.
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name'  => __( 'Accent Color', 'astroride' ),
+				'slug'  => 'accent',
+				'color' => '#32a0e5',
+			),
+			array(
+				'name'  => __( 'Primary', 'astroride' ),
+				'slug'  => 'primary',
+				'color' => '#35383a',
+			),
+			array(
+				'name'  => __( 'Secondary', 'astroride' ),
+				'slug'  => 'secondary',
+				'color' => '#0f0f0f',
+			),
+			array(
+				'name'  => __( 'Light Gray', 'astroride' ),
+				'slug'  => 'light-gray',
+				'color' => '#767676',
+			),
+			array(
+				'name'  => __( 'White', 'astroride' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+			),
+		)
+	);
 
-		// Add support for full and wide align images.
-		add_theme_support( 'align-wide' );
-
-		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-
-		// Enqueue editor styles.
-		add_editor_style( 'style-editor.css' );
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'astroride_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
-
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		// Add support for responsive embeds.
-		add_theme_support( 'responsive-embeds' );
-
-	}
-endif;
-add_action( 'after_setup_theme', 'astroride_setup' );
+}
+add_action( 'after_setup_theme', 'astroride_block_editor' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -190,6 +259,16 @@ if ( ! function_exists( 'astroride_fonts_url' ) ) :
 		return $fonts_url;
 	}
 endif;
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+
+	/**
+	 * Shim for wp_body_open, ensuring backwards compatibility with versions of WordPress older than 5.2.
+	 */
+	function wp_body_open() {
+		do_action( 'wp_body_open' );
+	}
+}
 
 /**
  * Custom template tags for this theme.

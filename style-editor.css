@@ -227,13 +227,110 @@ a:hover, a:active {
   outline: 0;
 }
 
+.has-accent-background-color,
+.has-primary-background-color,
+.has-secondary-background-color,
+.has-light-gray-background-color {
+  color: #fff;
+}
+
+.has-accent-background-color p,
+.has-accent-background-color h1,
+.has-accent-background-color h2,
+.has-accent-background-color h3,
+.has-accent-background-color h4,
+.has-accent-background-color h5,
+.has-accent-background-color h6,
+.has-accent-background-color a,
+.has-primary-background-color p,
+.has-primary-background-color h1,
+.has-primary-background-color h2,
+.has-primary-background-color h3,
+.has-primary-background-color h4,
+.has-primary-background-color h5,
+.has-primary-background-color h6,
+.has-primary-background-color a,
+.has-secondary-background-color p,
+.has-secondary-background-color h1,
+.has-secondary-background-color h2,
+.has-secondary-background-color h3,
+.has-secondary-background-color h4,
+.has-secondary-background-color h5,
+.has-secondary-background-color h6,
+.has-secondary-background-color a,
+.has-light-gray-background-color p,
+.has-light-gray-background-color h1,
+.has-light-gray-background-color h2,
+.has-light-gray-background-color h3,
+.has-light-gray-background-color h4,
+.has-light-gray-background-color h5,
+.has-light-gray-background-color h6,
+.has-light-gray-background-color a {
+  color: #fff;
+}
+
+.has-white-background-color {
+  color: #35383a;
+}
+
+.has-white-background-color p,
+.has-white-background-color h1,
+.has-white-background-color h2,
+.has-white-background-color h3,
+.has-white-background-color h4,
+.has-white-background-color h5,
+.has-white-background-color h6,
+.has-white-background-color a {
+  color: #35383a;
+}
+
+/** === Post Title === */
+.editor-post-title__block .editor-post-title__input {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+}
+
 /** === Default Appender === */
 .editor-default-block-appender .editor-default-block-appender__content {
   font-family: "Lora", serif;
 }
 
+/** === Heading === */
 .wp-block-heading strong {
-  font-weight: bold;
+  font-weight: bolder;
+}
+
+/** === Paragraph === */
+.wp-block-paragraph.has-drop-cap:not(:focus)::first-letter {
+  font-size: 90px;
+  font-weight: 800;
+  margin: .17em .1em 0 0;
+}
+
+.wp-block-paragraph.has-drop-cap:not(:focus)::after {
+  padding-top: 0;
+  display: inline;
+}
+
+/** === Gallery === */
+.wp-block-gallery .blocks-gallery-grid {
+  margin-left: 0;
+}
+
+/** === Image === */
+@media (min-width: 48em) {
+  .wp-block-image[data-align="wide"] {
+    margin-left: calc(25% - 25vw);
+    margin-right: calc(25% - 25vw);
+    max-width: 100vw;
+  }
+}
+
+@media (min-width: 120em) {
+  .wp-block-image[data-align="wide"] {
+    margin-left: calc(20% - 20vw);
+    margin-right: calc(20% - 20vw);
+  }
 }
 
 /*# sourceMappingURL=style-editor.css.map */
