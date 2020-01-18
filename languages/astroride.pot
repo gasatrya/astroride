@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2019 Idenovasi
+# <!=Copyright (C) 2020 Idenovasi
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: Astroride 1.0.0\n"
 "Report-Msgid-Bugs-To: satrya@idenovasi.com\n"
-"POT-Creation-Date: 2019-12-09 15:08:04+00:00\n"
+"POT-Creation-Date: 2020-01-18 10:39:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Satrya (satrya@idenovasi.com)\n"
 "Language-Team: Satrya (satrya@idenovasi.com)\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
@@ -42,24 +42,64 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:33
+#: footer.php:23
 msgid "&copy; Copyright %1$s %2$s. All Rights Reserved"
 msgstr ""
 
-#: functions.php:56
+#: functions.php:55 functions.php:159
 msgid "Primary"
 msgstr ""
 
-#: functions.php:57
+#: functions.php:56
 msgid "Social"
 msgstr ""
 
-#: functions.php:137
-msgid "Sidebar"
+#: functions.php:123
+msgid "Small"
 msgstr ""
 
-#: functions.php:139
-msgid "Add widgets here."
+#: functions.php:124
+msgid "S"
+msgstr ""
+
+#: functions.php:129
+msgid "Normal"
+msgstr ""
+
+#: functions.php:130
+msgid "M"
+msgstr ""
+
+#: functions.php:135
+msgid "Large"
+msgstr ""
+
+#: functions.php:136
+msgid "L"
+msgstr ""
+
+#: functions.php:141
+msgid "Huge"
+msgstr ""
+
+#: functions.php:142
+msgid "XL"
+msgstr ""
+
+#: functions.php:154
+msgid "Accent Color"
+msgstr ""
+
+#: functions.php:164
+msgid "Secondary"
+msgstr ""
+
+#: functions.php:169
+msgid "Light Gray"
+msgstr ""
+
+#: functions.php:174
+msgid "White"
 msgstr ""
 
 #: header.php:27
@@ -415,68 +455,51 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/template-functions.php:98
-msgid "Twitter URL"
+#: inc/template-tags.php:73
+msgid "Published"
 msgstr ""
 
-#: inc/template-functions.php:99
-msgid "Facebook URL"
+#: inc/template-tags.php:92
+msgid "Author"
 msgstr ""
 
-#: inc/template-functions.php:100
-msgid "Instagram URL"
-msgstr ""
-
-#: inc/template-functions.php:101
-msgid "Pinterest URL"
-msgstr ""
-
-#: inc/template-functions.php:102
-msgid "Linkedin URL"
-msgstr ""
-
-#: inc/template-functions.php:103
-msgid "Dribbble URL"
-msgstr ""
-
-#: inc/template-tags.php:109
+#: inc/template-tags.php:121
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:151
+#: inc/template-tags.php:127
+msgid "Categories"
+msgstr ""
+
+#: inc/template-tags.php:165
+msgid "Continue Reading"
+msgstr ""
+
+#: inc/template-tags.php:185
 #. translators: %s: post title
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
-#: inc/template-tags.php:263
+#: inc/template-tags.php:297
 msgid "Related Posts"
 msgstr ""
 
-#: inc/template-tags.php:318
-msgid "Share:"
+#: inc/template-tags.php:381
+msgid "Read More Posts By This Author"
 msgstr ""
 
-#: inc/template-tags.php:558
+#: inc/template-tags.php:415
 msgid "Previous Post"
 msgstr ""
 
-#: inc/template-tags.php:573
+#: inc/template-tags.php:426
 msgid "Next Post"
-msgstr ""
-
-#: inc/template-tags.php:611
-msgid "Back to top"
 msgstr ""
 
 #: search.php:24
 #. translators: %s: search query.
 msgid "Search Results for: %s"
-msgstr ""
-
-#: template-parts/content/content-first-post.php:39
-#: template-parts/content/content.php:46
-msgid "Continue Reading %s"
 msgstr ""
 
 #: template-parts/content/content-none.php:14
@@ -501,11 +524,11 @@ msgid ""
 msgstr ""
 
 #: template-parts/content/content-page.php:32
-#: template-parts/content/content-single.php:57
+#: template-parts/content/content-single.php:49
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content/content-single.php:46
+#: template-parts/content/content-single.php:38
 #. translators: %s: Name of current post. Only visible to screen readers
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -542,10 +565,17 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:180
-#. Translators: If there are characters in your language that are not supported
-#. by Amiri, translate this to 'off'. Do not translate into your own language.
-msgctxt "Amiri font: on or off"
+#: functions.php:236
+#. translators: If there are characters in your language that are not supported
+#. by Nunito, translate this to 'off'. Do not translate into your own language.
+msgctxt "Nunito font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:244
+#. translators: If there are characters in your language that are not supported
+#. by Lora, translate this to 'off'. Do not translate into your own language.
+msgctxt "Lora font: on or off"
 msgid "on"
 msgstr ""
 
@@ -573,13 +603,7 @@ msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/template-tags.php:86
-#. translators: %s: post author.
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#: inc/template-tags.php:130
+#: inc/template-tags.php:149
 #. translators: used between list items, there is a space after the comma
 msgctxt "list item separator"
 msgid ", "

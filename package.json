@@ -25,10 +25,10 @@
     "type": "git",
     "url": "git@github.com:idenovasi/astroride.git"
   },
-  "description": "=== Astroride ===",
+  "description": "Free WordPress blog theme.",
   "homepage": "https://github.com/idenovasi/astroride#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Idenovasi"
+  "author": "Idenovasi <satrya@idenovasi.com>"
 }
