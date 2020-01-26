@@ -2127,20 +2127,28 @@ a:hover, a:active {
   height: calc(100vh - 150px);
 }
 
-.hero__wrapper {
+.hero.text-left .hero__wrapper, .hero.text-right .hero__wrapper, .hero.text-center .hero__wrapper {
   max-width: 550px;
 }
 
 @media (min-width: 1280px) {
-  .hero__wrapper {
+  .hero.text-left .hero__wrapper, .hero.text-right .hero__wrapper, .hero.text-center .hero__wrapper {
     max-width: calc(550px + 120 * (100vw - 1280px) / 640);
   }
 }
 
 @media (min-width: 1920px) {
-  .hero__wrapper {
+  .hero.text-left .hero__wrapper, .hero.text-right .hero__wrapper, .hero.text-center .hero__wrapper {
     max-width: 670px;
   }
+}
+
+.hero.text-center .hero__wrapper {
+  margin: 0 auto;
+}
+
+.hero.text-right .hero__wrapper {
+  margin: 0 0 0 auto;
 }
 
 .hero__title {

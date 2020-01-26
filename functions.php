@@ -24,29 +24,29 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
  */
 function astroride_theme_setup() {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on _s, use a find and replace
-		* to change 'astroride' to the name of your theme in all the template files.
-		*/
+	* Make theme available for translation.
+	* Translations can be filed in the /languages/ directory.
+	* If you're building a theme based on _s, use a find and replace
+	* to change 'astroride' to the name of your theme in all the template files.
+	*/
 	load_theme_textdomain( 'astroride', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
+	* Let WordPress manage the document title.
+	* By adding theme support, we declare that this theme does not use a
+	* hard-coded <title> tag in the document head, and expect WordPress to
+	* provide it for us.
+	*/
 	add_theme_support( 'title-tag' );
 
 	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+	* Enable support for Post Thumbnails on posts and pages.
+	*
+	* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	*/
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1280, 9999 );
 
@@ -57,9 +57,9 @@ function astroride_theme_setup() {
 	) );
 
 	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
+	* Switch default core markup for search form, comment form, and comments
+	* to output valid HTML5.
+	*/
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
@@ -94,6 +94,16 @@ function astroride_theme_setup() {
 
 	// Add support for responsive embeds.
 	add_theme_support( 'responsive-embeds' );
+
+	/*
+	 * Adds `async` and `defer` support for scripts registered or enqueued
+	 * by the theme.
+	 */
+	$loader = new Astroride_Script_Loader();
+	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
+
+	// Disable Kirkir telemetry
+	add_filter( 'kirki_telemetry', '__return_false' );
 
 }
 add_action( 'after_setup_theme', 'astroride_theme_setup' );
@@ -151,27 +161,27 @@ function astroride_block_editor() {
 		'editor-color-palette',
 		array(
 			array(
-				'name'  => __( 'Accent Color', 'astroride' ),
+				'name'  => esc_html__( 'Accent Color', 'astroride' ),
 				'slug'  => 'accent',
 				'color' => '#32a0e5',
 			),
 			array(
-				'name'  => __( 'Primary', 'astroride' ),
+				'name'  => esc_html__( 'Primary', 'astroride' ),
 				'slug'  => 'primary',
 				'color' => '#35383a',
 			),
 			array(
-				'name'  => __( 'Secondary', 'astroride' ),
+				'name'  => esc_html__( 'Secondary', 'astroride' ),
 				'slug'  => 'secondary',
 				'color' => '#0f0f0f',
 			),
 			array(
-				'name'  => __( 'Light Gray', 'astroride' ),
+				'name'  => esc_html__( 'Light Gray', 'astroride' ),
 				'slug'  => 'light-gray',
 				'color' => '#767676',
 			),
 			array(
-				'name'  => __( 'White', 'astroride' ),
+				'name'  => esc_html__( 'White', 'astroride' ),
 				'slug'  => 'white',
 				'color' => '#ffffff',
 			),
@@ -209,10 +219,10 @@ function astroride_scripts() {
 	wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'astroride-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0.0', true );
-
-	wp_enqueue_script( 'astroride-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0.0', true );
+	wp_script_add_data( 'astroride-navigation', 'async', true );
 
 	wp_enqueue_script( 'astroride-custom-js', get_theme_file_uri( '/assets/js/custom.js' ), array( 'jquery' ), '1.0.0', true );
+	wp_script_add_data( 'astroride-custom-js', 'async', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -220,48 +230,62 @@ function astroride_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'astroride_scripts' );
 
-if ( ! function_exists( 'astroride_fonts_url' ) ) :
-	/**
-	 * Register Google fonts.
-	 */
-	function astroride_fonts_url() {
-		$fonts_url = '';
-		$fonts     = array();
-		$subsets   = 'latin,latin-ext';
+/**
+ * Fix skip link focus in IE11.
+ *
+ * This does not enqueue the script because it is tiny and because it is only for IE11,
+ * thus it does not warrant having an entire dedicated blocking script being loaded.
+ *
+ * @link https://git.io/vWdr2
+ */
+function astroride_skip_link_focus_fix() {
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'astroride_skip_link_focus_fix' );
 
-		/*
-		 * translators: If there are characters in your language that are not supported
-		 * by Nunito, translate this to 'off'. Do not translate into your own language.
-		 */
-		if ( 'off' !== _x( 'on', 'Nunito font: on or off', 'astroride' ) ) {
-			$fonts[] = 'Nunito:400,600,700,800';
-		}
+/**
+ * Register Google fonts.
+ */
+function astroride_fonts_url() {
+	$fonts_url = '';
+	$fonts     = array();
+	$subsets   = 'latin,latin-ext';
 
-		/*
-		 * translators: If there are characters in your language that are not supported
-		 * by Lora, translate this to 'off'. Do not translate into your own language.
-		 */
-		if ( 'off' !== _x( 'on', 'Lora font: on or off', 'astroride' ) ) {
-			$fonts[] = 'Lora:400,400i,700,700i';
-		}
-
-		if ( $fonts ) {
-			$fonts_url = add_query_arg(
-				array(
-					'family'  => urlencode( implode( '|', $fonts ) ),
-					'subset'  => urlencode( $subsets ),
-					'display' => urlencode( 'swap' ),
-				),
-				'https://fonts.googleapis.com/css'
-			);
-		}
-
-		return $fonts_url;
+	/*
+		* translators: If there are characters in your language that are not supported
+		* by Nunito, translate this to 'off'. Do not translate into your own language.
+		*/
+	if ( 'off' !== _x( 'on', 'Nunito font: on or off', 'astroride' ) ) {
+		$fonts[] = 'Nunito:400,600,700,800';
 	}
-endif;
+
+	/*
+		* translators: If there are characters in your language that are not supported
+		* by Lora, translate this to 'off'. Do not translate into your own language.
+		*/
+	if ( 'off' !== _x( 'on', 'Lora font: on or off', 'astroride' ) ) {
+		$fonts[] = 'Lora:400,400i,700,700i';
+	}
+
+	if ( $fonts ) {
+		$fonts_url = add_query_arg(
+			array(
+				'family'  => urlencode( implode( '|', $fonts ) ),
+				'subset'  => urlencode( $subsets ),
+				'display' => urlencode( 'swap' ),
+			),
+			'https://fonts.googleapis.com/css'
+		);
+	}
+
+	return $fonts_url;
+}
 
 if ( ! function_exists( 'wp_body_open' ) ) {
-
 	/**
 	 * Shim for wp_body_open, ensuring backwards compatibility with versions of WordPress older than 5.2.
 	 */
@@ -270,30 +294,39 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-/**
- * Custom template tags for this theme.
- */
+if ( ! function_exists( 'astroride_is_kirki_activated' ) ) :
+	/**
+	 * Kirki plugin activation checker.
+	 */
+	function astroride_is_kirki_activated() {
+		return class_exists( 'Kirki' ) ? true : false;
+	}
+endif;
+
+// Custom script loader class.
+require get_template_directory() . '/inc/classes/class-script-loader.php';
+
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
+// Functions which enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * SVG Icons related functions.
- */
+// Handle SVG icons.
 require get_template_directory() . '/inc/classes/class-svg-icons.php';
 require get_template_directory() . '/inc/icon-functions.php';
 
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file.
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * Theme customizer.
- */
+// Handle Customizer settings.
 require get_template_directory() . '/inc/customizer.php';
+if ( astroride_is_kirki_activated() ) {
+	require get_template_directory() . '/inc/kirki.php';
+}
+
+// Handle recommended plugins
+require get_template_directory() . '/inc/classes/class-tgm-plugin-activation.php';
+require get_template_directory() . '/inc/plugins.php';

@@ -3,9 +3,6 @@
  * TGM Plugin Lists
  */
 
-// Include the TGM_Plugin_Activation class.
-require trailingslashit( get_template_directory() ) . 'inc/extensions/tgmpa.php';
-
 /**
  * Register required and recommended plugins.
  */
@@ -14,14 +11,8 @@ function astroride_register_plugins() {
 	$plugins = array(
 
 		array(
-			'name'     => 'One Click Demo Import',
-			'slug'     => 'one-click-demo-import',
-			'required' => false,
-		),
-
-		array(
-			'name'     => 'Contact Form 7',
-			'slug'     => 'contact-form-7',
+			'name'     => 'Kirki',
+			'slug'     => 'Kirki',
 			'required' => false,
 		),
 

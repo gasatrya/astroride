@@ -1,27 +1,19 @@
 === Astroride ===
-
 Contributors: idenovasi, satrya
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-Requires at least: 4.8
+Requires at least: 4.9.6
 Tested up to: 5.3
+Requires PHP: 5.2.4
 Stable tag: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-
 Astroride is a beautiful and minimalist WordPress blog theme.
-
-== Installation ==
-
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
 
 == Changelog ==
 
-= 1.0.0 - Oct 28, 2019 =
+= 1.0.0 - Feb 05, 2020 =
 * Initial release
 
 == Credits ==

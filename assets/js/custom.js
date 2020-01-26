@@ -3,7 +3,6 @@
 	// Document ready
 	$(function () {
 
-
 	});
 
 }(jQuery));

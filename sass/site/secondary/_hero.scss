@@ -10,8 +10,24 @@
 		@extend %container;
 	}
 
-	&__wrapper {
-		@include fluid-type(max-width, 1280px, 1920px, 550px, 670px);
+	&.text-left,
+	&.text-right,
+	&.text-center {
+		.hero__wrapper {
+			@include fluid-type(max-width, 1280px, 1920px, 550px, 670px);
+		}
+	}
+
+	&.text-center {
+		.hero__wrapper {
+			margin: 0 auto;
+		}
+	}
+
+	&.text-right {
+		.hero__wrapper {
+			margin: 0 0 0 auto;
+		}
 	}
 
 	&__title {

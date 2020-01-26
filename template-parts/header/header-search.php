@@ -1,8 +1,8 @@
 <div class="header__search">
 
 	<?php
-		$search = get_theme_mod( 'search_icon', true );
-		if ( true == $search ) :
+		$astroride_search = get_theme_mod( 'astroride_search_icon', true );
+		if ( true == $astroride_search ) :
 	?>
 		<a class="header__search-link" href="#"><?php echo astroride_get_icon_svg( 'search' ); ?></a>
 	<?php endif; ?>

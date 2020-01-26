@@ -21,7 +21,7 @@ if ( ! function_exists( 'astroride_site_branding' ) ) :
 		$logo_url = wp_get_attachment_image_src( $logo_id , 'full' );
 
 		// Retina logo
-		$retina_id  = get_theme_mod( 'retina_logo' );
+		$retina_id  = get_theme_mod( 'astroride_retina_logo' );
 		$retina_url = wp_get_attachment_image_src( $retina_id , 'full' );
 
 		// Check if logo available, then display it.
