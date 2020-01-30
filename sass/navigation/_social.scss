@@ -2,9 +2,14 @@
 	position: absolute;
 	right: em(30px);
 	line-height: 0;
+	display: none;
 
 	@include media($tablet) {
 		right: em(65px);
+	}
+
+	@include media($tablet__wide) {
+		display: block;
 	}
 
 	&::after {

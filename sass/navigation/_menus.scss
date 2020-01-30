@@ -1,23 +1,22 @@
 .header__navigation {
-	width: 100%;
+	margin-left: auto;
 	@include media($tablet) {
 		text-align: center;
 	}
 
 	@include media($tablet__wide) {
 		width: auto;
+		margin-left: 0;
 	}
 
 	ul {
 		@extend %reset-list;
-		display: none;
 		background-color: $color__background-header;
 		position: relative;
 		z-index: 999;
 
 		@include media($tablet__wide) {
 			background-color: transparent;
-			// z-index: 0;
 		}
 
 		ul {
@@ -68,13 +67,6 @@
 				}
 			}
 
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
 		}
 
 		li:hover > ul,
@@ -155,16 +147,21 @@
 /* Small menu. */
 .menu-toggle {
 	display: block;
-	// padding-left: .75em;
-	line-height: 1.4;
+	line-height: 0;
 	border: 0;
 	border-radius: 0;
 	outline: none;
 	background-color: transparent;
+	padding: 0;
+	margin: 0;
 
-	@include media($tablet) {
-		margin: auto;
-		padding-left: 1.5em;
+	path:nth-child(2) {
+		fill: $color__menu-mobile;
+	}
+
+	&:hover {
+		border: 0;
+		background: none;
 	}
 }
 
@@ -181,15 +178,67 @@
 	}
 }
 
-.menu-toggle {
-
-	path:nth-child(2) {
-		fill: $color__menu-mobile;
+// Mobile menu
+.site {
+	@media (max-width: $tablet__wide) {
+		&.mobile-nav-open {
+			overflow: hidden;
+			position: relative;
+			.header__navigation-wrappper {
+				transform: none;
+				width: 50%;
+			}
+		}
 	}
 
-	&:hover {
-		border: 0;
-		background: none;
+	@media (max-width: $mobile) {
+		&.mobile-nav-open {
+			.header__navigation-wrappper {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.header__navigation {
+
+	&-wrappper {
+		@media (max-width: $tablet__wide) {
+			background-color: $color__background-header;
+			width: 0;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 99;
+			transition: all 200ms ease;
+			transform: translate3d(100%,0,0);
+		}
+	}
+
+	.close-toggle {
+		background-color: $color__background-close-mobile-menu;
+		padding: em(10px) 0;
+		width: 100%;
+		line-height: normal;
+		font-size: em(14px);
+	}
+
+	ul {
+		@media (max-width: $tablet__wide) {
+			text-align: left;
+			padding: em(12px) 0;
+			li {
+				display: block;
+				padding: 0 em(20px);
+				&:first-child {
+					padding-top: em(20px);
+				}
+			}
+			a {
+				padding: em(14px) 0;
+			}
+		}
 	}
 
 }

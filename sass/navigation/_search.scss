@@ -3,9 +3,11 @@
 	right: em(20px);
 	line-height: 0;
 	padding: 1.11em 0;
+	display: none;
 
 	@include media($tablet__wide) {
 		right: em(30px);
+		display: block;
 	}
 
 	&:hover {

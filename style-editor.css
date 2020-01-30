@@ -1,7 +1,9 @@
 /*!
 Astroride Editor Styles
+
+TO DO:
+- Cover
 */
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Nunito:400,600,700,800&display=swap");
 body, p, .editor-default-block-appender .editor-default-block-appender__content {
   font-size: 20px;
 }
@@ -26,8 +28,8 @@ body .wp-block[data-align="full"] {
   body .editor-post-title__block,
   body .editor-default-block-appender,
   body .editor-block-list__block {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   body .wp-block[data-align="wide"] {
     width: 100%;
@@ -57,7 +59,7 @@ body .wp-block[data-align="full"] {
 
 @media (min-width: 80em) {
   .wp-block {
-    width: calc(6 * (100vw / 12 ));
+    width: calc(7 * (100vw / 12));
   }
 }
 

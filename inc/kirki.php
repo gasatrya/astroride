@@ -21,8 +21,5 @@ add_filter( 'kirki/config', function( $config ) {
  * Customizer Options
  */
 
-// Retina Logo
-require get_template_directory() . '/inc/options/retina.php';
-
-// Hero
-require get_template_directory() . '/inc/options/hero.php';
+require get_template_directory() . '/inc/options/retina.php'; // Retina Logo
+require get_template_directory() . '/inc/options/hero.php'; // Hero

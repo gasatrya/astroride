@@ -123,7 +123,7 @@ function astroride_block_editor() {
 	add_theme_support( 'editor-styles' );
 
 	// Enqueue editor styles.
-	add_editor_style( 'style-editor.css' );
+	add_editor_style( array('style-editor.css', astroride_fonts_url()) );
 
 	// Add custom editor font sizes.
 	add_theme_support(
@@ -217,9 +217,6 @@ function astroride_scripts() {
 
 	wp_enqueue_style( 'astroride-style', get_stylesheet_uri(), array(), $theme_version );
 	wp_style_add_data( 'astroride-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'astroride-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '1.0.0', true );
-	wp_script_add_data( 'astroride-navigation', 'async', true );
 
 	wp_enqueue_script( 'astroride-custom-js', get_theme_file_uri( '/assets/js/custom.js' ), array( 'jquery' ), '1.0.0', true );
 	wp_script_add_data( 'astroride-custom-js', 'async', true );
