@@ -50,10 +50,11 @@ function astroride_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1280, 9999 );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in three location.
 	register_nav_menus( array(
-		'menu-1' => esc_html__( 'Primary', 'astroride' ),
-		'social' => esc_html__( 'Social', 'astroride' ),
+		'menu-1' => esc_html__( 'Main Menu', 'astroride' ),
+		'mobile' => esc_html__( 'Mobile Menu', 'astroride' ),
+		'social' => esc_html__( 'Social Icons', 'astroride' )
 	) );
 
 	/*

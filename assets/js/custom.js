@@ -1,7 +1,7 @@
 (function ($) {
 
 	// Mobile menu
-	function mobileMenu() {
+	function mobileMenu () {
 		let $wrapper = $('.site');
 
 		$('.menu-toggle').on('click', function (e) {
@@ -14,9 +14,21 @@
 		});
 	}
 
+	// Sub-menu mobile
+	function subMenuMobile () {
+		$('.submenu-expand').each(function() {
+			$(this).on('click', function(e) {
+				e.preventDefault();
+				$(this).parent().toggleClass('submenu-open');
+				$(this).next('ul').slideToggle();
+			});
+		});
+	}
+
 	// Document ready
 	$(function () {
 		mobileMenu();
+		subMenuMobile();
 	});
 
 })(jQuery);

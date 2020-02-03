@@ -4,7 +4,10 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	height: calc(100vh - 150px);
+	height: calc(100vw * (9/16));
+	@include media($tablet__wide) {
+		height: calc(100vh - 150px);
+	}
 
 	&__container {
 		@extend %container;
@@ -41,6 +44,6 @@
 
 	&__tagline {
 		color: $color__text-tagline;
-		@include fluid-type(font-size, 480px, 1920px, 18px, 28px);
+		@include fluid-type(font-size, 480px, 1920px, 15px, 28px);
 	}
 }

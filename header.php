@@ -38,6 +38,8 @@
 
 				<?php get_template_part( 'template-parts/menu/menu', 'navigation' ); ?>
 
+				<?php get_template_part( 'template-parts/menu/menu', 'mobile' ); ?>
+
 				<?php get_template_part( 'template-parts/menu/menu', 'social' ); ?>
 
 				<?php get_template_part( 'template-parts/header/header', 'search' ); ?>

@@ -4,6 +4,7 @@
 		@extend %h3;
 		margin-top: 0;
 		margin-bottom: em(30px);
+		line-height: normal;
 	}
 
 	&-items {
@@ -30,35 +31,32 @@
 	}
 
 	.comment-meta {
-		margin-bottom: em(10px);
 		@extend %flex;
 		align-items: center;
+		margin-bottom: em(20px);
+		@include media($tablet) {
+			margin-bottom: em(10px);
+		}
 	}
 
 	.comment-author {
-		font-size: em(14px);
 		@extend %flex;
 		align-items: center;
+		font-size: em(14px);
 
 		.avatar {
 			border-radius: 50%;
 			margin-right: em(10px);
+			display: none;
+			@include media($tablet) {
+				display: block;
+			}
 		}
 
 		.fn {
 			font-family: $font__body-alt;
 			position: relative;
 			text-transform: uppercase;
-
-			&::after {
-				content: "";
-				width: em(15px);
-				height: em(1px);
-				position: absolute;
-				border-top: em(1px) solid $color__border-input;
-				bottom: 0;
-				left: 0;
-			}
 		}
 
 		.says {

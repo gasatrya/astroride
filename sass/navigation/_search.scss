@@ -58,3 +58,21 @@
 	}
 
 }
+
+/**
+ * Mobile search
+ */
+.mobile-navigation {
+
+	&__search-form {
+		padding: em(40px) em(20px) 0;
+	}
+
+	input[type="search"] {
+		background-color: $color__background-search-mobile;
+		width: 100%;
+		border: 0;
+		color: $color__text-input-mobile;
+	}
+
+}

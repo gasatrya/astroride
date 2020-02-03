@@ -1,8 +1,8 @@
 === Astroride ===
 Contributors: idenovasi, satrya
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: blog, one-column, custom-background, custom-logo, custom-menu, editor-style, featured-images, rtl-language-support, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
 Requires at least: 4.9.6
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.2.4
 Stable tag: 1.0.0
 License: GPLv2 or later

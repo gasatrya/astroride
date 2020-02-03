@@ -34,20 +34,31 @@
 	@include fluid-type(margin-bottom, 1024px, 1920px, 60px, 125px);
 
 	&__wrapper {
-		@include grid-row;
+		@include media($tablet) {
+			// Can't use @extend because inside a media query
+			// @extend %row;
+			@include grid-row;
+		}
 		width: 100%;
 	}
 
 	&__prev,
 	&__next {
 		@extend %flex;
-		@include grid-column(6);
+		@include media($tablet) {
+			@include grid-column(6);
+		}
 	}
 
 	&__next {
 		margin-left: auto;
-		text-align: right;
-		justify-content: flex-end;
+		margin-top: em(30px);
+
+		@include media($tablet) {
+			text-align: right;
+			justify-content: flex-end;
+			margin-top: 0;
+		}
 
 		.post-pagination__link {
 			order: 2;

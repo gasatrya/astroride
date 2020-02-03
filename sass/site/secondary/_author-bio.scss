@@ -1,17 +1,30 @@
 .author-bio {
 	@include fluid-type(margin-bottom, 1024px, 1920px, 60px, 125px);
+	text-align: center;
+
+	@include media($tablet) {
+		text-align: left;
+	}
 
 	&__wrapper {
-		@include grid-row;
+		@include media($tablet) {
+			// Can't use @extend because inside a media query
+			// @extend %row;
+			@include grid-row;
+		}
 		width: 100%;
 	}
 
 	&__avatar {
-		@include grid-column(2);
+		@include media($tablet) {
+			@include grid-column(2);
+		}
 	}
 
 	&__details {
-		@include grid-column(10);
+		@include media($tablet) {
+			@include grid-column(10);
+		}
 	}
 
 	.avatar {

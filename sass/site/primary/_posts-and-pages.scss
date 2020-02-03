@@ -57,6 +57,9 @@
 	&__main {
 		margin: auto;
 		@include fluid-type(margin-top margin-bottom, 1024px, 1920px, 60px, 125px);
+		@include media($tablet) {
+			@include grid-column(10);
+		}
 		@include media($tablet__wide) {
 			@include grid-column(8);
 		}
@@ -96,10 +99,13 @@
 		&::after {
 			content: "";
 			border-bottom: (1px) solid $color__background-hr;
-			width: em(450px);
+			width: 100%;
 			margin: auto;
 			display: block;
 			padding-top: em(20px);
+			@include media($tablet) {
+				width: em(450px);
+			}
 		}
 	}
 
@@ -134,7 +140,7 @@
 		@extend %flex;
 
 		.single-post & {
-			@include fluid-type(margin-bottom, 786px, 1920px, 15px, 30px);
+			@include fluid-type(margin-bottom, 480px, 1920px, 25px, 30px);
 		}
 
 		&-info {
@@ -164,6 +170,11 @@
 
 		&-avatar {
 			padding-right: em(12px);
+			display: none;
+			@include media($mobile) {
+				display: block;
+			}
+
 			img {
 				border-radius: 50%;
 			}
@@ -206,6 +217,10 @@
 	&__readmore {
 		margin-left: auto;
 		line-height: 2;
+		display: none;
+		@include media($mobile) {
+			display: block;
+		}
 
 		&-link {
 			color: $color__link;

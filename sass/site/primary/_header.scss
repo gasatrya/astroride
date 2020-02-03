@@ -26,7 +26,7 @@
 		font-weight: 800;
 		margin-bottom: 0;
 		text-transform: uppercase;
-		@include fluid-type(font-size, 1280px, 1920px, 33px, 36px);
+		@include fluid-type(font-size, 480px, 1920px, 28px, 36px);
 		a {
 			color: $color__text-title;
 			&:hover {

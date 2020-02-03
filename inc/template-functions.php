@@ -89,3 +89,28 @@ function astroride_is_comment_by_post_author( $comment = null ) {
 	}
 	return false;
 }
+
+/**
+ * Add a dropdown icon to top-level menu items.
+ */
+function astroride_add_dropdown_icons( $output, $item, $depth, $args ) {
+
+	// Only add class to 'top level' items on the 'primary' menu.
+	if ( 'mobile' !== $args->theme_location ) {
+		return $output;
+	}
+
+	if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
+
+		// Add SVG icon to parent items.
+		$icon = astroride_get_icon_svg( 'keyboard_arrow_down' );
+
+		$output .= sprintf(
+			'<button class="submenu-expand" tabindex="-1">%s</button>',
+			$icon
+		);
+	}
+
+	return $output;
+}
+add_filter( 'walker_nav_menu_start_el', 'astroride_add_dropdown_icons', 10, 4 );
