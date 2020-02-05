@@ -3,7 +3,7 @@ Theme Name: Astroride
 Theme URI: https://idenovasi.com/wordpress-themes/astroride/
 Author: Idenovasi
 Author URI: https://idenovasi.com/
-Description: Astroride is a multi-author & personal blog theme for WordPress CMS. Featuring a minimal, responsive, content-focused design and single-column layout.
+Description: Astroride is a multi-author & personal blog theme for WordPress. Featuring a minimal, fluid responsive, content-focused design and single-column layout.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -118,7 +118,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -654,6 +655,7 @@ input[type="submit"] {
   padding: 1em 1.5em 1em;
   cursor: pointer;
   text-transform: uppercase;
+  -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
 
@@ -735,6 +737,7 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: #32a0e5;
+  -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out;
   text-decoration: none;
 }
@@ -788,6 +791,7 @@ a:hover, a:active {
 .header__navigation ul ul {
   text-align: left;
   padding: 0.625em 0;
+  -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
 }
 
@@ -872,9 +876,13 @@ a:hover, a:active {
 }
 
 .header__navigation li.menu-item-has-children > a {
+  display: -webkit-box;
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row wrap;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .header__navigation li.menu-item-has-children > a::after {
@@ -951,7 +959,8 @@ a:hover, a:active {
     position: relative;
   }
   .site.mobile-nav-open .mobile-navigation {
-    transform: none;
+    -webkit-transform: none;
+            transform: none;
     width: 50%;
   }
 }
@@ -970,8 +979,10 @@ a:hover, a:active {
   top: 0;
   right: 0;
   z-index: 99;
+  -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
-  transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
 }
 
 .mobile-navigation ul {
@@ -1132,6 +1143,7 @@ a:hover, a:active {
   padding: 0.625em;
   visibility: hidden;
   opacity: 0;
+  -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
   min-width: 100vw;
 }
@@ -1146,6 +1158,26 @@ a:hover, a:active {
 .header__search-form input[type="search"] {
   border: 0;
   width: 100%;
+}
+
+.header__search-form input[type="search"]::-webkit-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.header__search-form input[type="search"]::-moz-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.header__search-form input[type="search"]:-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.header__search-form input[type="search"]::-ms-input-placeholder {
+  text-transform: uppercase;
+  font-size: 0.875em;
 }
 
 .header__search-form input[type="search"]::placeholder {
@@ -1174,7 +1206,8 @@ a:hover, a:active {
 .screen-reader-text, .post__comments .comment-author .says {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1190,7 +1223,8 @@ a:hover, a:active {
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
-  clip-path: none;
+  -webkit-clip-path: none;
+          clip-path: none;
   color: #21759b;
   display: block;
   font-size: 14px;
@@ -1284,6 +1318,7 @@ a:hover, a:active {
 }
 
 .header__wrapper, .content__main-grid, .post__meta, .post__author, .post__author-byline, .post__date, .post__categories, .post__footer, .post__comments .comment-meta, .post__comments .comment-author, .footer__wrapper, .hero, .posts-navigation .nav-links, .posts-navigation .nav-links a, .post-pagination, .post-pagination__prev, .post-pagination__next {
+  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
 }
@@ -1313,7 +1348,8 @@ a:hover, a:active {
 }
 
 .header__wrapper {
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   height: 6.25em;
 }
 
@@ -1383,12 +1419,14 @@ a:hover, a:active {
 
 .post__thumbnail:hover img {
   opacity: .8;
-  transform: scale(1.07);
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
 }
 
 .post__thumbnail img {
   display: block;
   opacity: 1;
+  -webkit-transition: .4s ease-in-out;
   transition: .4s ease-in-out;
 }
 
@@ -1402,7 +1440,10 @@ a:hover, a:active {
 
 @media (min-width: 64em) {
   .content__row {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
     margin-right: -20px;
@@ -1616,7 +1657,8 @@ a:hover, a:active {
 }
 
 .post__author {
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   padding-right: 3.75em;
 }
 
@@ -1636,11 +1678,15 @@ a:hover, a:active {
 }
 
 .post__author-byline {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
 }
 
 .post__date {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
   padding-right: 3.75em;
 }
 
@@ -1653,7 +1699,9 @@ a:hover, a:active {
 }
 
 .post__categories {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
 }
 
 .post__categories .post__meta-info {
@@ -1680,6 +1728,7 @@ a:hover, a:active {
   color: #32a0e5;
   position: relative;
   bottom: 0;
+  -webkit-transition: bottom 250ms ease-in-out;
   transition: bottom 250ms ease-in-out;
 }
 
@@ -2057,7 +2106,8 @@ a:hover, a:active {
 .entry .post__content-article .wp-block-image.alignfull {
   position: relative;
   left: 50%;
-  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   width: 100vw;
   max-width: 100vw;
 }
@@ -2095,7 +2145,8 @@ a:hover, a:active {
 }
 
 .post__comments .comment-meta {
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   margin-bottom: 1.25em;
 }
 
@@ -2106,7 +2157,8 @@ a:hover, a:active {
 }
 
 .post__comments .comment-author {
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   font-size: 0.875em;
 }
 
@@ -2219,14 +2271,20 @@ a:hover, a:active {
 }
 
 .footer__wrapper {
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
 }
 
 @media (min-width: 48em) {
   .footer__wrapper {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
   }
 }
 
@@ -2258,7 +2316,8 @@ a:hover, a:active {
 ## Hero
 --------------------------------------------------------------*/
 .hero {
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -2337,8 +2396,10 @@ a:hover, a:active {
 ## Pagination
 --------------------------------------------------------------*/
 .posts-navigation .nav-links a {
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   font-size: 0.875em;
   width: 10.625em;
 }
@@ -2349,8 +2410,10 @@ a:hover, a:active {
 
 .posts-navigation .nav-next {
   width: 50%;
+  display: -webkit-box;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
   margin-left: auto;
 }
 
@@ -2379,7 +2442,10 @@ a:hover, a:active {
 
 @media (min-width: 48em) {
   .post-pagination__wrapper {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
     margin-right: -20px;
@@ -2404,19 +2470,22 @@ a:hover, a:active {
 @media (min-width: 48em) {
   .post-pagination__next {
     text-align: right;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+            justify-content: flex-end;
     margin-top: 0;
   }
 }
 
 .post-pagination__next .post-pagination__link {
-  order: 2;
+  -webkit-box-ordinal-group: 3;
+          order: 2;
   padding-right: 0;
   padding-left: 1.25em;
 }
 
 .post-pagination__next .post-pagination__detail {
-  order: 1;
+  -webkit-box-ordinal-group: 2;
+          order: 1;
 }
 
 .post-pagination__link {
@@ -2487,7 +2556,10 @@ a:hover, a:active {
 
 @media (min-width: 48em) {
   .author-bio__wrapper {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
     margin-right: -20px;
@@ -2675,5 +2747,3 @@ object {
 .gallery-caption {
   display: block;
 }
-
-/*# sourceMappingURL=style.css.map */

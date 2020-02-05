@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Astroride 1.0.0\n"
 "Report-Msgid-Bugs-To: satrya@idenovasi.com\n"
-"POT-Creation-Date: 2020-01-18 10:39:28+00:00\n"
+"POT-Creation-Date: 2020-02-04 15:55:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,59 +46,67 @@ msgstr ""
 msgid "&copy; Copyright %1$s %2$s. All Rights Reserved"
 msgstr ""
 
-#: functions.php:55 functions.php:159
-msgid "Primary"
+#: functions.php:55 template-parts/menu/menu-navigation.php:2
+msgid "Main Menu"
 msgstr ""
 
 #: functions.php:56
-msgid "Social"
+msgid "Mobile Menu"
 msgstr ""
 
-#: functions.php:123
+#: functions.php:57
+msgid "Social Icons"
+msgstr ""
+
+#: functions.php:134
 msgid "Small"
 msgstr ""
 
-#: functions.php:124
+#: functions.php:135
 msgid "S"
 msgstr ""
 
-#: functions.php:129
+#: functions.php:140
 msgid "Normal"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:141
 msgid "M"
 msgstr ""
 
-#: functions.php:135
+#: functions.php:146
 msgid "Large"
 msgstr ""
 
-#: functions.php:136
+#: functions.php:147
 msgid "L"
 msgstr ""
 
-#: functions.php:141
+#: functions.php:152
 msgid "Huge"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:153
 msgid "XL"
 msgstr ""
 
-#: functions.php:154
+#: functions.php:165
 msgid "Accent Color"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:170
+msgid "Primary"
+msgstr ""
+
+#: functions.php:175
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:169
+#: functions.php:180
 msgid "Light Gray"
 msgstr ""
 
-#: functions.php:174
+#: functions.php:185
 msgid "White"
 msgstr ""
 
@@ -112,347 +120,410 @@ msgid ""
 "%s. Please upgrade and try again."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:327
+#: inc/classes/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:328
+#: inc/classes/class-tgm-plugin-activation.php:328
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:330
+#: inc/classes/class-tgm-plugin-activation.php:330
 #. translators: %s: plugin name.
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:332
+#: inc/classes/class-tgm-plugin-activation.php:332
 #. translators: %s: plugin name.
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:333
+#: inc/classes/class-tgm-plugin-activation.php:333
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:370
+#: inc/classes/class-tgm-plugin-activation.php:370
 #. translators: 1: plugin name(s).
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:375
+#: inc/classes/class-tgm-plugin-activation.php:375
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:380
+#: inc/classes/class-tgm-plugin-activation.php:380
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:385
+#: inc/classes/class-tgm-plugin-activation.php:385
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:386 inc/extensions/tgmpa.php:827
-#: inc/extensions/tgmpa.php:2533 inc/extensions/tgmpa.php:3580
+#: inc/classes/class-tgm-plugin-activation.php:386
+#: inc/classes/class-tgm-plugin-activation.php:827
+#: inc/classes/class-tgm-plugin-activation.php:2533
+#: inc/classes/class-tgm-plugin-activation.php:3580
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:387 inc/extensions/tgmpa.php:3159
+#: inc/classes/class-tgm-plugin-activation.php:387
+#: inc/classes/class-tgm-plugin-activation.php:3159
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:388 inc/extensions/tgmpa.php:2952
+#: inc/classes/class-tgm-plugin-activation.php:388
+#: inc/classes/class-tgm-plugin-activation.php:2952
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:390
+#: inc/classes/class-tgm-plugin-activation.php:390
 #. translators: 1: plugin name.
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:392
+#: inc/classes/class-tgm-plugin-activation.php:392
 #. translators: 1: plugin name.
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:394
+#: inc/classes/class-tgm-plugin-activation.php:394
 #. translators: 1: dashboard link.
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:395
+#: inc/classes/class-tgm-plugin-activation.php:395
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:396
+#: inc/classes/class-tgm-plugin-activation.php:396
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:397
+#: inc/classes/class-tgm-plugin-activation.php:397
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:522
+#: inc/classes/class-tgm-plugin-activation.php:522
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:523
+#: inc/classes/class-tgm-plugin-activation.php:523
 msgid "Update Required"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:934
+#: inc/classes/class-tgm-plugin-activation.php:934
 msgid ""
 "The remote plugin package does not contain a folder with the desired slug "
 "and renaming did not work."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:934 inc/extensions/tgmpa.php:937
+#: inc/classes/class-tgm-plugin-activation.php:934
+#: inc/classes/class-tgm-plugin-activation.php:937
 msgid ""
 "Please contact the plugin provider and ask them to package their plugin "
 "according to the WordPress guidelines."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:937
+#: inc/classes/class-tgm-plugin-activation.php:937
 msgid ""
 "The remote plugin package consists of more than one file, but the files are "
 "not packaged in a folder."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:1982
+#: inc/classes/class-tgm-plugin-activation.php:1982
 #. translators: %s: version number
 msgid "TGMPA v%s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2273
+#: inc/classes/class-tgm-plugin-activation.php:2273
 msgid "Required"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2276
+#: inc/classes/class-tgm-plugin-activation.php:2276
 msgid "Recommended"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2292
+#: inc/classes/class-tgm-plugin-activation.php:2292
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2295
+#: inc/classes/class-tgm-plugin-activation.php:2295
 msgid "External Source"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2298
+#: inc/classes/class-tgm-plugin-activation.php:2298
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2315
+#: inc/classes/class-tgm-plugin-activation.php:2315
 msgid "Not Installed"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2319
+#: inc/classes/class-tgm-plugin-activation.php:2319
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2321
+#: inc/classes/class-tgm-plugin-activation.php:2321
 msgid "Active"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2327
+#: inc/classes/class-tgm-plugin-activation.php:2327
 msgid "Required Update not Available"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2330
+#: inc/classes/class-tgm-plugin-activation.php:2330
 msgid "Requires Update"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2333
+#: inc/classes/class-tgm-plugin-activation.php:2333
 msgid "Update recommended"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2392
+#: inc/classes/class-tgm-plugin-activation.php:2392
 #. translators: 1: number of plugins.
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:2396
+#: inc/classes/class-tgm-plugin-activation.php:2396
 #. translators: 1: number of plugins.
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:2400
+#: inc/classes/class-tgm-plugin-activation.php:2400
 #. translators: 1: number of plugins.
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:2490
+#: inc/classes/class-tgm-plugin-activation.php:2490
 msgid "Installed version:"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2498
+#: inc/classes/class-tgm-plugin-activation.php:2498
 msgid "Minimum required version:"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2510
+#: inc/classes/class-tgm-plugin-activation.php:2510
 msgid "Available version:"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2533
+#: inc/classes/class-tgm-plugin-activation.php:2533
 msgid "No plugins to install, update or activate."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2547
+#: inc/classes/class-tgm-plugin-activation.php:2547
 msgid "Plugin"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2548
+#: inc/classes/class-tgm-plugin-activation.php:2548
 msgid "Source"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2549
+#: inc/classes/class-tgm-plugin-activation.php:2549 inc/options/hero.php:69
 msgid "Type"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2553
+#: inc/classes/class-tgm-plugin-activation.php:2553
 msgid "Version"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2554
+#: inc/classes/class-tgm-plugin-activation.php:2554
 msgid "Status"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2603
+#: inc/classes/class-tgm-plugin-activation.php:2603
 #. translators: %2$s: plugin name in screen reader markup
 msgid "Install %2$s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2608
+#: inc/classes/class-tgm-plugin-activation.php:2608
 #. translators: %2$s: plugin name in screen reader markup
 msgid "Update %2$s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2614
+#: inc/classes/class-tgm-plugin-activation.php:2614
 #. translators: %2$s: plugin name in screen reader markup
 msgid "Activate %2$s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2684
+#: inc/classes/class-tgm-plugin-activation.php:2684
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2717
+#: inc/classes/class-tgm-plugin-activation.php:2717
 msgid "Install"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2723
+#: inc/classes/class-tgm-plugin-activation.php:2723
 msgid "Update"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2726
+#: inc/classes/class-tgm-plugin-activation.php:2726
 msgid "Activate"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2757
+#: inc/classes/class-tgm-plugin-activation.php:2757
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2759
+#: inc/classes/class-tgm-plugin-activation.php:2759
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2800
+#: inc/classes/class-tgm-plugin-activation.php:2800
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2802
+#: inc/classes/class-tgm-plugin-activation.php:2802
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2908
+#: inc/classes/class-tgm-plugin-activation.php:2908
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2934
+#: inc/classes/class-tgm-plugin-activation.php:2934
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3158
+#: inc/classes/class-tgm-plugin-activation.php:3158
 msgid "Plugin activation failed."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3498
+#: inc/classes/class-tgm-plugin-activation.php:3498
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3501
+#: inc/classes/class-tgm-plugin-activation.php:3501
 #. translators: 1: plugin name, 2: error message.
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3503
+#: inc/classes/class-tgm-plugin-activation.php:3503
 #. translators: 1: plugin name.
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3507
+#: inc/classes/class-tgm-plugin-activation.php:3507
 msgid ""
 "The installation and activation process is starting. This process may take "
 "a while on some hosts, so please be patient."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3509
+#: inc/classes/class-tgm-plugin-activation.php:3509
 #. translators: 1: plugin name.
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3509 inc/extensions/tgmpa.php:3517
+#: inc/classes/class-tgm-plugin-activation.php:3509
+#: inc/classes/class-tgm-plugin-activation.php:3517
 msgid "Show Details"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3509 inc/extensions/tgmpa.php:3517
+#: inc/classes/class-tgm-plugin-activation.php:3509
+#: inc/classes/class-tgm-plugin-activation.php:3517
 msgid "Hide Details"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3510
+#: inc/classes/class-tgm-plugin-activation.php:3510
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3512
+#: inc/classes/class-tgm-plugin-activation.php:3512
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3515
+#: inc/classes/class-tgm-plugin-activation.php:3515
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3517
+#: inc/classes/class-tgm-plugin-activation.php:3517
 #. translators: 1: plugin name.
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3518
+#: inc/classes/class-tgm-plugin-activation.php:3518
 msgid "All installations have been completed."
 msgstr ""
 
-#: inc/extensions/tgmpa.php:3520
+#: inc/classes/class-tgm-plugin-activation.php:3520
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/options/hero.php:8
+msgid "Hero"
+msgstr ""
+
+#: inc/options/hero.php:16
+msgid "Enable"
+msgstr ""
+
+#: inc/options/hero.php:25
+msgid "Title"
+msgstr ""
+
+#: inc/options/hero.php:47
+msgid "Tagline"
+msgstr ""
+
+#: inc/options/hero.php:73
+msgid "Color"
+msgstr ""
+
+#: inc/options/hero.php:74
+msgid "Image"
+msgstr ""
+
+#: inc/options/hero.php:89
+msgid "Background Color"
+msgstr ""
+
+#: inc/options/hero.php:121
+msgid "Background Image"
+msgstr ""
+
+#: inc/options/hero.php:145
+msgid "Text Color"
+msgstr ""
+
+#: inc/options/hero.php:172
+msgid "Text Alignment"
+msgstr ""
+
+#: inc/options/hero.php:176
+msgid "Left"
+msgstr ""
+
+#: inc/options/hero.php:177
+msgid "Center"
+msgstr ""
+
+#: inc/options/hero.php:178
+msgid "Right"
+msgstr ""
+
+#: inc/options/retina.php:6
+msgid "Logo Retina"
 msgstr ""
 
 #: inc/template-tags.php:73
@@ -533,8 +604,8 @@ msgstr ""
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/menu/menu-navigation.php:2
-msgid "Main Menu"
+#: template-parts/menu/menu-mobile.php:5
+msgid "Close menu"
 msgstr ""
 
 #: template-parts/menu/menu-social.php:6
@@ -545,16 +616,23 @@ msgstr ""
 msgid "Astroride"
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://idenovasi.com/"
+#. Theme URI of the plugin/theme
+msgid "https://idenovasi.com/wordpress-themes/astroride/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Astroride is a beautiful and minimalist WordPress blog theme."
+msgid ""
+"Astroride is a multi-author & personal blog theme for WordPress. Featuring "
+"a minimal, fluid responsive, content-focused design and single-column "
+"layout."
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Idenovasi"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://idenovasi.com/"
 msgstr ""
 
 #: comments.php:41
@@ -565,32 +643,33 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:236
+#: functions.php:260
 #. translators: If there are characters in your language that are not supported
 #. by Nunito, translate this to 'off'. Do not translate into your own language.
 msgctxt "Nunito font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:244
+#: functions.php:268
 #. translators: If there are characters in your language that are not supported
 #. by Lora, translate this to 'off'. Do not translate into your own language.
 msgctxt "Lora font: on or off"
 msgid "on"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:1121 inc/extensions/tgmpa.php:2948
+#: inc/classes/class-tgm-plugin-activation.php:1121
+#: inc/classes/class-tgm-plugin-activation.php:2948
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2342
+#: inc/classes/class-tgm-plugin-activation.php:2342
 #. translators: 1: install status, 2: update status
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
-#: inc/extensions/tgmpa.php:2388
+#: inc/classes/class-tgm-plugin-activation.php:2388
 #. translators: 1: number of plugins.
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
@@ -598,7 +677,7 @@ msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/extensions/tgmpa.php:2482
+#: inc/classes/class-tgm-plugin-activation.php:2482
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
@@ -610,11 +689,13 @@ msgid ", "
 msgstr ""
 
 #: template-parts/header/header-search.php:12
+#: template-parts/menu/menu-mobile.php:22
 msgctxt "placeholder"
 msgid "Press enter to search &hellip;"
 msgstr ""
 
 #: template-parts/header/header-search.php:12
+#: template-parts/menu/menu-mobile.php:22
 msgctxt "label"
 msgid "Search for:"
 msgstr ""

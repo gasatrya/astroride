@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Astroride is a beautiful and minimalist WordPress blog theme.
+Astroride is a multi-author & personal blog theme for WordPress. Featuring a minimal, fluid responsive, content-focused design and single-column layout.
 
 == Changelog ==
 
@@ -20,3 +20,6 @@ Astroride is a beautiful and minimalist WordPress blog theme.
 
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+
+* Image in screenshot
+  source: https://stocksnap.io/photo/Q2V5YXHWBP / LICENSE CC0
