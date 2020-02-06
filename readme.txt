@@ -23,3 +23,7 @@ Astroride is a multi-author & personal blog theme for WordPress. Featuring a min
 
 * Image in screenshot
   source: https://stocksnap.io/photo/Q2V5YXHWBP / LICENSE CC0
+* Image for posts
+  source: https://stocksnap.io/photo/W0RUS6FWBJ / LICENSE CC0
+  source: https://stocksnap.io/photo/N0ZRKV9CI6 / LICENSE CC0
+  source: https://stocksnap.io/photo/DZ7DC58DSV / LICENSE CC0

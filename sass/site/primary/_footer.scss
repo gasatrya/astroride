@@ -7,6 +7,7 @@
 	color: $color__text-footer;
 	text-align: center;
 	padding: em(55px) 0 em(50px);
+	@include fluid-type(font-size, 480px, 1920px, 14px, 16px);
 
 	&__wrapper {
 		@extend %flex;
@@ -21,7 +22,7 @@
 
 	&__copyright {
 		@extend %footer__text;
-		margin-bottom: em(20px);
+		margin-bottom: em(10px);
 		@include media($tablet) {
 			position: absolute;
 			left: em(40px);

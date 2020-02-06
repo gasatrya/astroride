@@ -16,18 +16,20 @@ get_header();
 ?>
 
 	<div class="content__container">
-		<main class="content__main-page">
+		<div class="content__row">
+			<main class="content__main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
-			get_template_part( 'template-parts/content/content', 'page' );
+					get_template_part( 'template-parts/content/content', 'page' );
 
-		endwhile; // End of the loop.
-		?>
+				endwhile; // End of the loop.
+				?>
 
-		</main><!-- .content__main -->
+			</main><!-- .content__main -->
+		</div><!-- .content__row -->
 	</div><!-- .content__container -->
 
 <?php

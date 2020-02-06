@@ -18,10 +18,10 @@
 			);
 			?>
 
-		<form class="mobile-navigation__search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<input class="mobile-navigation__search-field" type="search" name="search-mobile" id="search-mobile" placeholder="<?php echo esc_attr_x( 'Press enter to search &hellip;', 'placeholder', 'astroride' ) ?>" autocomplete="off" value="<?php echo esc_attr( get_search_query() ); ?>" title="<?php echo esc_attr_x( 'Search for:', 'label', 'astroride' ) ?>">
-		</form>
+			<form class="mobile-navigation__search-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+				<input class="mobile-navigation__search-field" type="search" name="search-mobile" id="search-mobile" placeholder="<?php echo esc_attr_x( 'Press enter to search &hellip;', 'placeholder', 'astroride' ) ?>" autocomplete="off" value="<?php echo esc_attr( get_search_query() ); ?>" title="<?php echo esc_attr_x( 'Search for:', 'label', 'astroride' ) ?>">
+			</form>
 
-		</div><!-- .header__navigation-wrappper -->
-	</nav><!-- .header__navigation -->
+		</div><!-- .mobile-navigation__wrappper -->
+	</nav><!-- .mobile-navigation -->
 <?php endif; ?>

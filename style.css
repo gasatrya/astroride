@@ -3,7 +3,7 @@ Theme Name: Astroride
 Theme URI: https://idenovasi.com/wordpress-themes/astroride/
 Author: Idenovasi
 Author URI: https://idenovasi.com/
-Description: Astroride is a multi-author & personal blog theme for WordPress. Featuring a minimal, fluid responsive, content-focused design and single-column layout.
+Description: Astroride is a multi-author & personal blog theme for WordPress. Featuring a minimal, fluid responsive, content-focused design and single-column layout. Demo: https://demowp.idenovasi.com/astroride/
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -2268,6 +2268,19 @@ a:hover, a:active {
   color: #fff;
   text-align: center;
   padding: 3.4375em 0 3.125em;
+  font-size: 14px;
+}
+
+@media (min-width: 480px) {
+  .footer {
+    font-size: calc(14px + 2 * (100vw - 480px) / 1440);
+  }
+}
+
+@media (min-width: 1920px) {
+  .footer {
+    font-size: 16px;
+  }
 }
 
 .footer__wrapper {
@@ -2289,7 +2302,7 @@ a:hover, a:active {
 }
 
 .footer__copyright {
-  margin-bottom: 1.25em;
+  margin-bottom: 0.625em;
 }
 
 @media (min-width: 48em) {
