@@ -93,6 +93,7 @@ module.exports = function (grunt) {
 					'!node_modules/**',
 					'!build/**',
 					'!scss/**',
+					'!sass/**',
 					'!.git/**',
 					'!Gruntfile.js',
 					'!package.json',
